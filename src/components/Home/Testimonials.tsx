@@ -30,13 +30,24 @@ export default function TestimonialsSection() {
                     className="bg-white border border-[#616161] bg-opacity-70 backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col justify-between"
                 >
                     <div className="flex items-center">
-                        <Image
-                            width={100}
-                            height={100}
-                            src={testimonial.img}
-                            alt={testimonial.name}
-                            className="w-12 h-12 rounded-full object-contain mr-4"
-                        />
+                        {testimonial.img ? (
+                            <Image
+                                width={100}
+                                height={100}
+                                src={testimonial.img}
+                                alt={testimonial.name}
+                                className="w-12 h-12 rounded-full object-contain mr-4"
+                            />
+                        ) : (
+                            <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white font-bold text-lg mr-4">
+                                {testimonial.name
+                                    .split(' ')
+                                    .map(word => word[0])
+                                    .join('')
+                                    .slice(0, 2)
+                                    .toUpperCase()}
+                            </div>
+                        )}
                         <div>
                             <h4 className="text-lg font-semibold text-gray-800">{testimonial.name}</h4>
                             <p className="text-sm text-gray-600">{testimonial.title}</p>
@@ -81,13 +92,24 @@ export default function TestimonialsSection() {
                             className="bg-white  border border-[#616161] bg-opacity-70 backdrop-blur-md rounded-2xl shadow-lg p-6 flex flex-col justify-between"
                         >
                             <div className="flex items-center">
-                                <Image
-                                    width={100}
-                                    height={100}
-                                    src={testimonial.img}
-                                    alt={testimonial.name}
-                                    className="w-12 h-12 rounded-full object-contain mr-4"
-                                />
+                                {testimonial.img ? (
+                                    <Image
+                                        width={100}
+                                        height={100}
+                                        src={testimonial.img}
+                                        alt={testimonial.name}
+                                        className="w-12 h-12 rounded-full object-contain mr-4"
+                                    />
+                                ) : (
+                                    <div className="w-12 h-12 rounded-full bg-red-500 flex items-center justify-center text-white font-bold text-lg mr-4">
+                                        {testimonial.name
+                                            .split(' ')
+                                            .map(word => word[0])
+                                            .join('')
+                                            .slice(0, 2)
+                                            .toUpperCase()}
+                                    </div>
+                                )}
                                 <div>
                                     <h4 className="text-lg font-semibold text-gray-800">{testimonial.name}</h4>
                                     <p className="text-sm text-gray-600">{testimonial.title}</p>

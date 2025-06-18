@@ -16,7 +16,7 @@ export default function Header() {
             <header className="w-full fixed px-4 md:px-20 py-4 flex items-center justify-between bg-opacity-30 backdrop-blur-[2px] z-50">
                 {/* Logo */}
                 <div className="text-2xl font-bold text-[#B30738]">
-                    <Link href="/">AssumeChat</Link>
+                    <Link href="/">BizzSocial</Link>
                 </div>
 
             </header>

@@ -5,115 +5,156 @@ export interface College {
     popularCourses: string[];
 }
 
+export interface College {
+    name: string;
+    state: string;
+    popularCourses: string[];
+}
+
 export const usColleges: College[] = [
     {
-        name: "Harvard University",
-        state: "Massachusetts",
-        popularCourses: ["Computer Science", "Economics", "Political Science", "Psychology", "Biology"]
+        name: "IIT Bombay",
+        state: "Maharashtra",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Aerospace", "Civil Engineering"]
     },
     {
-        name: "Stanford University",
-        state: "California",
-        popularCourses: ["Computer Science", "Engineering", "Business", "Human Biology", "International Relations"]
+        name: "IIT Delhi",
+        state: "Delhi",
+        popularCourses: ["Computer Science", "Chemical Engineering", "Electrical Engineering", "Mechanical Engineering", "Mathematics"]
     },
     {
-        name: "Massachusetts Institute of Technology (MIT)",
-        state: "Massachusetts",
-        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Physics", "Mathematics"]
+        name: "IIT Kanpur",
+        state: "Uttar Pradesh",
+        popularCourses: ["Computer Science", "Mechanical Engineering", "Aerospace", "Mathematics", "Materials Science"]
     },
     {
-        name: "California Institute of Technology (Caltech)",
-        state: "California",
-        popularCourses: ["Computer Science", "Physics", "Electrical Engineering", "Chemical Engineering", "Biology"]
+        name: "IIT Madras",
+        state: "Tamil Nadu",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Civil Engineering", "Mechanical Engineering", "Physics"]
     },
     {
-        name: "Princeton University",
-        state: "New Jersey",
-        popularCourses: ["Computer Science", "Economics", "Public Policy", "Molecular Biology", "Psychology"]
+        name: "IIT Kharagpur",
+        state: "West Bengal",
+        popularCourses: ["Computer Science", "Architecture", "Mechanical Engineering", "Agricultural Engineering", "Law"]
     },
     {
-        name: "Yale University",
-        state: "Connecticut",
-        popularCourses: ["Political Science", "Economics", "History", "Psychology", "Biology"]
+        name: "IIT Roorkee",
+        state: "Uttarakhand",
+        popularCourses: ["Civil Engineering", "Hydrology", "Mechanical Engineering", "Computer Science", "Earth Sciences"]
     },
     {
-        name: "Columbia University",
-        state: "New York",
-        popularCourses: ["Computer Science", "Economics", "Political Science", "Psychology", "English"]
+        name: "IIT Guwahati",
+        state: "Assam",
+        popularCourses: ["Computer Science", "Design", "Chemical Engineering", "Mathematics", "Electronics"]
     },
     {
-        name: "University of Chicago",
-        state: "Illinois",
-        popularCourses: ["Economics", "Mathematics", "Political Science", "Computer Science", "Physics"]
+        name: "IIT Hyderabad",
+        state: "Telangana",
+        popularCourses: ["AI & Data Science", "Electrical Engineering", "Mechanical Engineering", "Design", "Computer Science"]
     },
     {
-        name: "University of Pennsylvania",
-        state: "Pennsylvania",
-        popularCourses: ["Finance", "Economics", "Nursing", "Computer Science", "Biology"]
+        name: "IIT Bhubaneswar",
+        state: "Odisha",
+        popularCourses: ["Mechanical Engineering", "Electrical Engineering", "Civil Engineering", "Computer Science", "Metallurgical Engineering"]
     },
     {
-        name: "Duke University",
-        state: "North Carolina",
-        popularCourses: ["Computer Science", "Economics", "Public Policy", "Biology", "Psychology"]
-    },
-    // Add more universities as needed...
-    {
-        name: "New York University (NYU)",
-        state: "New York",
-        popularCourses: ["Business", "Film & Television", "Economics", "Computer Science", "Psychology"]
+        name: "IIT Gandhinagar",
+        state: "Gujarat",
+        popularCourses: ["Mechanical Engineering", "Electrical Engineering", "Computer Science", "Earth System Science", "Biological Engineering"]
     },
     {
-        name: "University of California, Berkeley",
-        state: "California",
-        popularCourses: ["Computer Science", "Electrical Engineering", "Business", "Molecular Biology", "Economics"]
+        name: "IIT Jodhpur",
+        state: "Rajasthan",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Materials Engineering", "Artificial Intelligence"]
     },
     {
-        name: "University of California, Los Angeles (UCLA)",
-        state: "California",
-        popularCourses: ["Biology", "Political Science", "Psychology", "Economics", "Sociology"]
+        name: "IIT Patna",
+        state: "Bihar",
+        popularCourses: ["Computer Science", "Electronics", "Mechanical Engineering", "Mathematics", "Physics"]
     },
     {
-        name: "University of Michigan",
-        state: "Michigan",
-        popularCourses: ["Business", "Psychology", "Economics", "Computer Science", "Political Science"]
+        name: "IIT Ropar",
+        state: "Punjab",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering", "Metallurgical Engineering"]
     },
     {
-        name: "University of Virginia",
-        state: "Virginia",
-        popularCourses: ["Economics", "Business", "Biology", "Psychology", "Political Science"]
+        name: "IIT Indore",
+        state: "Madhya Pradesh",
+        popularCourses: ["Computer Science", "Mechanical Engineering", "Electrical Engineering", "Physics", "Mathematics"]
     },
+    {
+        name: "IIT Mandi",
+        state: "Himachal Pradesh",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Data Science", "Civil Engineering"]
+    },
+    {
+        name: "IIT (ISM) Dhanbad",
+        state: "Jharkhand",
+        popularCourses: ["Mining Engineering", "Petroleum Engineering", "Computer Science", "Electronics", "Mathematics"]
+    },
+    {
+        name: "IIT Palakkad",
+        state: "Kerala",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering", "Data Science"]
+    },
+    {
+        name: "IIT Tirupati",
+        state: "Andhra Pradesh",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering", "Engineering Physics"]
+    },
+    {
+        name: "IIT Bhilai",
+        state: "Chhattisgarh",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Data Science", "Physics"]
+    },
+    {
+        name: "IIT Goa",
+        state: "Goa",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Mathematics", "Physics"]
+    },
+    {
+        name: "IIT Jammu",
+        state: "Jammu & Kashmir",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Civil Engineering", "Materials Engineering"]
+    },
+    {
+        name: "IIT Dharwad",
+        state: "Karnataka",
+        popularCourses: ["Computer Science", "Electrical Engineering", "Mechanical Engineering", "Mathematics", "Physics"]
+    }
 ];
 
-// Common US courses that span multiple universities
 export const commonCourses = [
     "Computer Science",
     "Electrical Engineering",
+    "Electronics and Communication Engineering",
     "Mechanical Engineering",
     "Civil Engineering",
     "Chemical Engineering",
-    "Biology",
-    "Chemistry",
+    "Metallurgical Engineering",
+    "Materials Science and Engineering",
+    "Engineering Physics",
+    "Data Science",
+    "Artificial Intelligence",
+    "Aerospace Engineering",
+    "Instrumentation Engineering",
+    "Environmental Engineering",
+    "Mathematics and Computing",
     "Physics",
-    "Mathematics",
+    "Chemistry",
+    "Biotechnology",
+    "Biological Sciences",
     "Economics",
-    "Business Administration",
-    "Finance",
-    "Accounting",
-    "Marketing",
-    "Psychology",
-    "Political Science",
-    "International Relations",
-    "English Literature",
-    "History",
-    "Sociology",
-    "Communications",
-    "Nursing",
-    "Pre-Med",
-    "Pre-Law",
-    "Film Studies",
+    "Humanities and Social Sciences",
     "Architecture",
-    "Art History",
-    "Philosophy",
-    "Environmental Science",
-    "Biochemistry"
+    "Design",
+    "Robotics",
+    "Geoinformatics",
+    "Earth Sciences",
+    "Industrial Engineering",
+    "Production Engineering",
+    "Nanotechnology",
+    "Petroleum Engineering",
+    "Mining Engineering",
+    "Applied Mechanics"
 ];
