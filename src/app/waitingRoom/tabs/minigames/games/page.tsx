@@ -1,30 +1,30 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { useRouter } from 'next/navigation';
-import Image from 'next/image';
-import { EyeIcon } from '@/components/Icons/eye';
-import { gametypes } from '@/types/Game.type';
-import retroGames from '@/Data/Games';
-import EmulatorContainer from '@/components/Games/EmulatorContainer'; // adjust path if needed
+"use client";
+import { useEffect, useState } from "react";
+import { useRouter } from "next/navigation";
+import Image from "next/image";
+import { EyeIcon } from "@/components/Icons/eye";
+import { gametypes } from "@/types/Game.type";
+import retroGames from "@/Data/Games";
+import EmulatorContainer from "@/components/Games/EmulatorContainer"; // adjust path if needed
 import {
   FaUserFriends,
   FaArrowUp,
   FaArrowDown,
   FaArrowLeft,
   FaArrowRight,
-} from 'react-icons/fa';
+} from "react-icons/fa";
 export default function GameOnePage() {
   const [game, setGame] = useState<gametypes>();
   const [isGameRunning, setIsGameRunning] = useState(false);
-  const [romUrl, setRomUrl] = useState<string>('');
+  const [romUrl, setRomUrl] = useState<string>("");
   const router = useRouter();
 
   // On mount, pick up ?game=ID
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
-    const id = params.get('game');
+    const id = params.get("game");
     if (id) {
-      const current = retroGames.find(g => g.id === Number(id));
+      const current = retroGames.find((g) => g.id === Number(id));
       setGame(current);
       if (current?.nesUrl) {
         setRomUrl(current.nesUrl);
@@ -40,7 +40,7 @@ export default function GameOnePage() {
   const handleStop = () => {
     // Simply unmount the EmulatorContainer (iframe)
     setIsGameRunning(false);
-    setRomUrl(''); // optional, clear out old URL
+    setRomUrl(""); // optional, clear out old URL
     // No further cleanup needed—removing the iframe kills audio/loops automatically
   };
 
@@ -52,8 +52,8 @@ export default function GameOnePage() {
           <div className="mb-6">
             <div className="w-full overflow-hidden rounded-xl">
               <Image
-                src={game?.imgUrl || '/game/game1.png'}
-                alt={game?.name || 'Game banner'}
+                src={game?.imgUrl || "/game/game1.png"}
+                alt={game?.name || "Game banner"}
                 width={1000}
                 height={200}
                 className="w-full h-auto object-cover"
@@ -72,7 +72,7 @@ export default function GameOnePage() {
                 disabled={!game?.nesUrl}
                 className="bg-[#B30738] disabled:opacity-50 text-white px-6 py-2 rounded-xl font-bold hover:bg-[#8a052b] transition"
               >
-                {game?.nesUrl ? 'Play' : 'Coming Soon'}
+                {game?.nesUrl ? "Play" : "Coming Soon"}
               </button>
             </div>
           </div>
@@ -82,7 +82,7 @@ export default function GameOnePage() {
               <div className="p-2.5 border-2 border-gray-500 rounded-xl">
                 <FaUserFriends />
               </div>
-              <span>{game?.type || 'Single Player'}</span>
+              <span>{game?.type || "Single Player"}</span>
             </div>
             <div className="flex items-center space-x-2">
               <div className="p-1.5 border-2 border-gray-500 rounded-xl">
@@ -91,7 +91,9 @@ export default function GameOnePage() {
               <span>{game?.quote}</span>
             </div>
           </div>
-          <p className="text-gray-700 leading-relaxed mb-6">{game?.description}</p>
+          <p className="text-gray-700 leading-relaxed mb-6">
+            {game?.description}
+          </p>
         </>
       ) : (
         <>

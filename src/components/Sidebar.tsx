@@ -70,7 +70,7 @@ const Header = () => {
             <header className="w-full fixed px-4 md:px-20 py-4 flex items-center justify-between bg-white z-50">
                 {/* Logo */}
                 <div className="text-2xl font-bold text-[#B30738]">
-                    <Link href="/">AssumeChat</Link>
+                    <Link href="/">Bizzsocial</Link>
                 </div>
 
                 {/* Mobile Menu Button */}
