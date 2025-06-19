@@ -74,22 +74,18 @@ export default function HeroSection() {
           // Different floating patterns for different positions
           if (index < 2) {
             // Top reviews
-            review.style.transform = `translateY(${
-              Math.sin(time + delay) * 10
-            }px)`;
+            review.style.transform = `translateY(${Math.sin(time + delay) * 10
+              }px)`;
           } else if (index < 4) {
             // Middle reviews
-            review.style.transform = `translateX(${
-              Math.sin(time + delay) * 15
-            }px)`;
+            review.style.transform = `translateX(${Math.sin(time + delay) * 15
+              }px)`;
           } else {
             // Bottom reviews
-            review.style.transform = `translateY(${
-              Math.sin(time + delay) * 8
-            }px) 
-                                     translateX(${
-                                       Math.cos(time + delay) * 12
-                                     }px)`;
+            review.style.transform = `translateY(${Math.sin(time + delay) * 8
+              }px) 
+                                     translateX(${Math.cos(time + delay) * 12
+              }px)`;
           }
         });
 
@@ -101,24 +97,20 @@ export default function HeroSection() {
           // Different floating patterns for icons
           if (index === 0) {
             // Middle top icon
-            icon.style.transform = `translateY(${
-              Math.sin(time + delay) * 8
-            }px) rotate(${Math.sin(time + delay) * 5}deg)`;
+            icon.style.transform = `translateY(${Math.sin(time + delay) * 8
+              }px) rotate(${Math.sin(time + delay) * 5}deg)`;
           } else if (index === 1) {
             // Left of first card
-            icon.style.transform = `translateX(${
-              Math.cos(time + delay) * 10
-            }px) rotate(${Math.cos(time + delay) * 8}deg)`;
+            icon.style.transform = `translateX(${Math.cos(time + delay) * 10
+              }px) rotate(${Math.cos(time + delay) * 8}deg)`;
           } else if (index === 2) {
             // Right of second row card
-            icon.style.transform = `translateY(${
-              Math.sin(time + delay) * 6
-            }px) rotate(${Math.sin(time + delay) * 6}deg)`;
+            icon.style.transform = `translateY(${Math.sin(time + delay) * 6
+              }px) rotate(${Math.sin(time + delay) * 6}deg)`;
           } else {
             // Bottom row icons
-            icon.style.transform = `translateX(${
-              Math.cos(time + delay) * 12
-            }px) rotate(${Math.cos(time + delay) * 10}deg)`;
+            icon.style.transform = `translateX(${Math.cos(time + delay) * 12
+              }px) rotate(${Math.cos(time + delay) * 10}deg)`;
           }
         });
 
@@ -529,15 +521,14 @@ export default function HeroSection() {
                         {[1, 2, 3, 4].map((i) => (
                           <div
                             key={i}
-                            className={`h-1 w-4 mx-px rounded-sm ${
-                              i <= passwordStrength
+                            className={`h-1 w-4 mx-px rounded-sm ${i <= passwordStrength
                                 ? i <= 2
                                   ? "bg-red-500"
                                   : i === 3
-                                  ? "bg-yellow-500"
-                                  : "bg-green-500"
+                                    ? "bg-yellow-500"
+                                    : "bg-green-500"
                                 : "bg-gray-200"
-                            }`}
+                              }`}
                           />
                         ))}
                       </div>
