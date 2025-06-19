@@ -1,19 +1,19 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Instagram, Facebook, SendIcon } from 'lucide-react';
-import { BsTwitterX } from 'react-icons/bs';
-import Link from 'next/link';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Instagram, Facebook, SendIcon } from "lucide-react";
+import { BsTwitterX } from "react-icons/bs";
+import Link from "next/link";
 
 export function FooterSection() {
-    const [email, setEmail] = useState('');
-    const [loading, setLoading] = useState(false);
-    const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setLoading(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
 
         const formData = {
             access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
@@ -22,29 +22,29 @@ export function FooterSection() {
             email,
         };
 
-        try {
-            const res = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-            const data = await res.json();
+      const data = await res.json();
 
-            if (data.success) {
-                router.push('/thanku');
-            } else {
-                alert('Something went wrong. Please try again.');
-            }
-        } catch (error) {
-            console.error('Newsletter submission error:', error);
-            alert('Submission failed.');
-        } finally {
-            setLoading(false);
-        }
-    };
+      if (data.success) {
+        router.push("/thanku");
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Newsletter submission error:", error);
+      alert("Submission failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
     return (
         <footer className="bg-white bg-opacity-10 backdrop-blur-md py-14 md:px-12 mt-16">
@@ -82,31 +82,38 @@ export function FooterSection() {
                         </ul>
                     </div>
 
-                    {/* Newsletter */}
-                    <div>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Stay Updated</h4>
-                        <p className="text-gray-600 mb-4">Subscribe to our newsletter for latest updates</p>
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-xl font-semibold text-gray-800 mb-4">
+              Stay Updated
+            </h4>
+            <p className="text-gray-600 mb-4">
+              Subscribe to our newsletter for latest updates
+            </p>
 
-                        <form onSubmit={handleSubmit} className="flex gap-2 w-full max-w-sm">
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email"
-                                className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none"
-                            />
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="p-2 border border-gray-400 py-2 rounded-md text-white"
-                            >
-                                <SendIcon color="#B30738" />
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            <form
+              onSubmit={handleSubmit}
+              className="flex gap-2 w-full max-w-sm"
+            >
+              <input
+                type="email"
+                name="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="p-2 border border-gray-400 py-2 rounded-md text-white"
+              >
+                <SendIcon color="#B30738" />
+              </button>
+            </form>
+          </div>
+        </div>
 
                 {/* Footer Bottom */}
                 <div className="border-t border-gray-300 mt-12 pt-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">

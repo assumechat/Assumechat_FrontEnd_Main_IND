@@ -1,17 +1,17 @@
 import {
-    Accordion,
-    AccordionContent,
-    AccordionItem,
-    AccordionTrigger,
-} from "@/components/ui/accordion"
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 
 export default function FnQsection() {
-    return (
-        <>
-            <section className="py-16 px-4 md:px-24">
-                <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-900 mb-4">
-                    Frequently Asked Questions
-                </h2>
+  return (
+    <>
+      <section className="py-16 px-4 md:px-24">
+        <h2 className="text-2xl md:text-4xl font-bold text-center text-gray-900 mb-4">
+          Frequently Asked Questions
+        </h2>
 
                 {/* Description */}
                 <p className="text-md md:text-xl text-center text-[#616161] font-semibold max-w-3xl mx-auto mb-8 md:mb-12">

@@ -19,8 +19,8 @@ export default function Header() {
     const user = useSelector((state: { user: UserState }) => state.user.user);
     const isAuthenticated = useSelector((state: { user: UserState }) => state.user.isAuthenticated);
 
-    const router = useRouter();
-    const dispatch = useDispatch();
+  const router = useRouter();
+  const dispatch = useDispatch();
 
     const isActive = (href: string) => pathname === href;
 

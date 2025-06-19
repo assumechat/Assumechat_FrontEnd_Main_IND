@@ -1,52 +1,50 @@
-'use client';
+"use client";
 
-import { useState, useRef, useEffect } from 'react';
-import { FiInfo, FiSend } from 'react-icons/fi';
-import Image from 'next/image';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { sendMessage, skipMatch, clearMessages, matched, leaveQueue, joinQueue } from '@/store/slices/socketSlice';
-import { toast } from "sonner"
-import { getChatSocket } from '@/Services/socketService';
-import { ChatEvent } from '@/types/Chat';
-import { LogOutIcon } from 'lucide-react';
-import { useRouter } from 'next/navigation';
-import axios from 'axios';
-import { FaStar } from 'react-icons/fa';
-import { EyeIcon, HeartIcon, ChatIcon } from '@/components/Icons/eye';
+import { useState, useRef, useEffect } from "react";
+import { FiInfo, FiSend } from "react-icons/fi";
+import Image from "next/image";
+import { useAppSelector, useAppDispatch } from "@/store/hooks";
 import {
-  Dialog,
-  DialogTrigger,
-  DialogContent,
-  DialogHeader,
-  DialogTitle,
-  DialogDescription,
-  DialogClose,
-} from "@/components/ui/dialog";
-import ReportDialog from '@/components/Chat/ReportDialog';
-import FeedbackDialog from '@/components/Chat/FeedbackDialog';
-import MatchDialog from '@/components/Chat/MatchDialog';
+  sendMessage,
+  skipMatch,
+  clearMessages,
+  matched,
+  leaveQueue,
+  joinQueue,
+} from "@/store/slices/socketSlice";
+import { toast } from "sonner";
+import { getChatSocket } from "@/Services/socketService";
+import { ChatEvent } from "@/types/Chat";
+import { LogOutIcon } from "lucide-react";
+import { useRouter } from "next/navigation";
+import axios from "axios";
+import ReportDialog from "@/components/Chat/ReportDialog";
+import FeedbackDialog from "@/components/Chat/FeedbackDialog";
+import MatchDialog from "@/components/Chat/MatchDialog";
 
 const ChatSystem = () => {
   const dispatch = useAppDispatch();
-  const messages = useAppSelector(state => state.socket.messages);
-  const chatConnected = useAppSelector(state => state.socket.chatConnected);
-  const matchedState = useAppSelector(state => state.socket.matched);
+  const messages = useAppSelector((state) => state.socket.messages);
+  const chatConnected = useAppSelector((state) => state.socket.chatConnected);
+  const matchedState = useAppSelector((state) => state.socket.matched);
   const [showFeedbackModal, setshowFeedbackModal] = useState(false);
-  const [feedbackText, setFeedbackText] = useState('');
+  const [feedbackText, setFeedbackText] = useState("");
   const [rating, setRating] = useState(3);
-  const { position, waiting, online } = useAppSelector(s => s.socket);
-  const [inputValue, setInputValue] = useState('');
+  const { position, waiting, online } = useAppSelector((s) => s.socket);
+  const [inputValue, setInputValue] = useState("");
   const [isMatching, setIsMatching] = useState(!matchedState);
   const messagesEndRef = useRef<HTMLDivElement>(null);
   const router = useRouter();
-  const [peerInfo, setPeerInfo] = useState<{ userId: string; userName?: string } | null>(null);
+  const [peerInfo, setPeerInfo] = useState<{
+    userId: string;
+    userName?: string;
+  } | null>(null);
   const user = useAppSelector((state) => state.user.user);
   const [showReportModal, setShowReportModal] = useState(false);
   const [reportData, setReportData] = useState<any>(null);
-  const [selectedReason, setSelectedReason] = useState('');
-  const [details, setDetails] = useState('');
+  const [selectedReason, setSelectedReason] = useState("");
+  const [details, setDetails] = useState("");
   const [showMatchedUserModel, setShowMatchedUserModel] = useState(false);
-
 
   useEffect(() => {
     if (matchedState) {
@@ -57,7 +55,7 @@ const ChatSystem = () => {
   }, [matchedState]);
 
   useEffect(() => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, [messages]);
 
   useEffect(() => {
@@ -65,7 +63,7 @@ const ChatSystem = () => {
 
     function onPeerHandshake(payload: { userId: string; userName?: string }) {
       setPeerInfo(null); // Clear peer info
-      toast(`${payload.userName ?? 'Peer'} has joined the room!`);
+      toast(`${payload.userName ?? "Peer"} has joined the room!`);
       setPeerInfo(payload); // ✅ This updates peerInfo
       setShowMatchedUserModel(true); // ✅ Immediately show modal
       setIsMatching(false);
@@ -80,13 +78,12 @@ const ChatSystem = () => {
     };
   }, [dispatch]);
 
-
   const handleSend = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     const text = inputValue.trim();
     if (text && matchedState) {
       dispatch(sendMessage(text));
-      setInputValue('');
+      setInputValue("");
     }
   };
 
@@ -112,26 +109,26 @@ const ChatSystem = () => {
           rating,
         },
         {
-          headers: { 'Content-Type': 'application/json' },
+          headers: { "Content-Type": "application/json" },
         }
       );
-      toast.success('Feedback sent, thank you!');
-      setFeedbackText('');
+      toast.success("Feedback sent, thank you!");
+      setFeedbackText("");
       setRating(3);
       setshowFeedbackModal(false);
     } catch (error) {
-      toast.error('Failed to send feedback. Please try again.');
-      console.error('Feedback submission error:', error);
+      toast.error("Failed to send feedback. Please try again.");
+      console.error("Feedback submission error:", error);
     }
   };
 
   //handle report
   const reasons = [
-    'Harassment or hate',
-    'Spam / ads',
-    'Inappropriate content',
-    'Impersonation',
-    'Other',
+    "Harassment or hate",
+    "Spam / ads",
+    "Inappropriate content",
+    "Impersonation",
+    "Other",
   ];
   const handleReportSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -140,20 +137,27 @@ const ChatSystem = () => {
       return;
     }
     try {
-      const response = await axios.post(`${process.env.NEXT_PUBLIC_BACKEND_URL}report/submit-report`, {
-        reasons: selectedReason,
-        details,
-        peerId: peerInfo?.userId,
-      }, {
-        headers: { 'Content-Type': 'application/json' },
-      });
+      const response = await axios.post(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}report/submit-report`,
+        {
+          reasons: selectedReason,
+          details,
+          peerId: peerInfo?.userId,
+        },
+        {
+          headers: { "Content-Type": "application/json" },
+        }
+      );
       toast.success("Report submitted successfully");
-      setDetails('');
-      setSelectedReason('');
-      setShowReportModal(false)
+      setDetails("");
+      setSelectedReason("");
+      setShowReportModal(false);
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
-        toast.error(error.response?.data?.message || "Failed to submit report. Please try again.");
+        toast.error(
+          error.response?.data?.message ||
+            "Failed to submit report. Please try again."
+        );
       } else {
         toast.error("Failed to submit report. Please try again.");
       }
@@ -168,7 +172,7 @@ const ChatSystem = () => {
     // leave & rejoin the queue
     dispatch(leaveQueue());
     dispatch(joinQueue());
-    toast('Searching again…');
+    toast("Searching again…");
   };
 
   useEffect(() => {
@@ -179,9 +183,9 @@ const ChatSystem = () => {
       setshowFeedbackModal(true); // ✅ show feedback
       setIsMatching(true);
     }
-    chatSocket.on('peerLeft', onPeerLeft);
+    chatSocket.on("peerLeft", onPeerLeft);
     return () => {
-      chatSocket.off('peerLeft', onPeerLeft);
+      chatSocket.off("peerLeft", onPeerLeft);
     };
   }, [dispatch]);
   // Show loader while matching
@@ -189,13 +193,30 @@ const ChatSystem = () => {
     return (
       <>
         <div className="flex flex-col items-center justify-center h-full pt-24">
-          <svg className="animate-spin h-8 w-8 text-[#B30738] mb-4" viewBox="0 0 24 24">
-            <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none" />
-            <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+          <svg
+            className="animate-spin h-8 w-8 text-[#B30738] mb-4"
+            viewBox="0 0 24 24"
+          >
+            <circle
+              className="opacity-25"
+              cx="12"
+              cy="12"
+              r="10"
+              stroke="currentColor"
+              strokeWidth="4"
+              fill="none"
+            />
+            <path
+              className="opacity-75"
+              fill="currentColor"
+              d="M4 12a8 8 0 018-8v8z"
+            />
           </svg>
           <p className="text-gray-600">Online users: {online}</p>
           <p className="text-gray-600">Queue Position: {position}</p>
-          <p className="text-gray-800 font-medium mt-2">Matching you with someone...</p>
+          <p className="text-gray-800 font-medium mt-2">
+            Matching you with someone...
+          </p>
           <button
             onClick={handleRetry}
             className="mt-6 px-4 py-2 bg-[#B30738] text-white rounded hover:bg-[#901e36] transition"
@@ -211,8 +232,8 @@ const ChatSystem = () => {
             setFeedbackText={setFeedbackText}
             rating={rating}
             setRating={setRating}
-            user={{ name: user?.name ?? '' }}
-            peerInfo={{ userName: peerInfo?.userName ?? '' }}
+            user={{ name: user?.name ?? "" }}
+            peerInfo={{ userName: peerInfo?.userName ?? "" }}
             handleFeedbackSubmit={handleFeedbackSubmit}
           />
         )}
@@ -221,9 +242,9 @@ const ChatSystem = () => {
   }
 
   const suggestions = [
-    'Assume something about me',
-    'Take a wild guess...',
-    "What's your first impression of me?"
+    "Assume something about me",
+    "Take a wild guess...",
+    "What's your first impression of me?",
   ];
 
   return (
@@ -243,7 +264,9 @@ const ChatSystem = () => {
                 />
               </div>
               <div>
-                <h2 className="font-semibold text-[#B30738]">{peerInfo.userName ?? peerInfo.userId}</h2>
+                <h2 className="font-semibold text-[#B30738]">
+                  {peerInfo.userName ?? peerInfo.userId}
+                </h2>
               </div>
             </>
           )}
@@ -254,10 +277,13 @@ const ChatSystem = () => {
             disabled={isMatching}
             className="p-2 border-[#B30738] border-1 rounded-xl text-gray-600 hover:text-gray-900"
           >
-            <LogOutIcon color='#B30738' size={20} />
+            <LogOutIcon color="#B30738" size={20} />
           </button>
-          <button onClick={() => setShowReportModal(true)} className="p-2 border-[#B30738] border-1 rounded-xl text-gray-600 hover:text-gray-900">
-            <FiInfo color='#B30738' size={20} />
+          <button
+            onClick={() => setShowReportModal(true)}
+            className="p-2 border-[#B30738] border-1 rounded-xl text-gray-600 hover:text-gray-900"
+          >
+            <FiInfo color="#B30738" size={20} />
           </button>
         </div>
       </div>
@@ -269,21 +295,35 @@ const ChatSystem = () => {
           {messages.map((m, idx) => (
             <div
               key={m.timestamp}
-              className={`flex ${m.peerId === matchedState?.peer ? 'justify-end' : 'justify-start'}`}
+              className={`flex ${
+                m.peerId === matchedState?.peer
+                  ? "justify-end"
+                  : "justify-start"
+              }`}
             >
-              <div className={`flex items-start max-w-xs md:max-w-md lg:max-w-lg ${m.peerId === matchedState?.peer ? 'flex-row-reverse' : ''}`}>
+              <div
+                className={`flex items-start max-w-xs md:max-w-md lg:max-w-lg ${
+                  m.peerId === matchedState?.peer ? "flex-row-reverse" : ""
+                }`}
+              >
                 <div className="flex-shrink-0 h-8 w-8 rounded-full overflow-hidden">
                   <Image
-                    src={m.peerId === matchedState?.peer ? 'https://res.cloudinary.com/dipywb0lr/image/upload/v1746702005/image_jmhhxy.png' : 'https://res.cloudinary.com/dipywb0lr/image/upload/v1746702005/image_qkwdzs.jpg'}
+                    src={
+                      m.peerId === matchedState?.peer
+                        ? "https://res.cloudinary.com/dipywb0lr/image/upload/v1746702005/image_jmhhxy.png"
+                        : "https://res.cloudinary.com/dipywb0lr/image/upload/v1746702005/image_qkwdzs.jpg"
+                    }
                     alt="User avatar"
                     width={32}
                     height={32}
                     className="object-cover"
                   />
                 </div>
-                <div className={`mx-2 px-4 py-2 rounded-lg ${m.peerId === matchedState?.peer
-                  ? 'bg-[#B30738] text-white rounded-tr-none'
-                  : 'bg-white text-gray-800 rounded-tl-none border border-gray-200'
+                <div
+                  className={`mx-2 px-4 py-2 rounded-lg ${
+                    m.peerId === matchedState?.peer
+                      ? "bg-[#B30738] text-white rounded-tr-none"
+                      : "bg-white text-gray-800 rounded-tl-none border border-gray-200"
                   }`}
                 >
                   {m.content}
@@ -310,7 +350,10 @@ const ChatSystem = () => {
             ))}
           </div>
         )}
-        <form onSubmit={handleSend} className="flex mt-3 border border-gray-700 rounded-lg items-center max-w-5xl mx-auto">
+        <form
+          onSubmit={handleSend}
+          className="flex mt-3 border border-gray-700 rounded-lg items-center max-w-5xl mx-auto"
+        >
           <input
             type="text"
             value={inputValue}
@@ -324,13 +367,13 @@ const ChatSystem = () => {
             disabled={!inputValue.trim() || isMatching}
             className="px-4 py-2  text-white rounded-r-lg disabled:opacity-50"
           >
-            <FiSend size={20} color='#B30738' />
+            <FiSend size={20} color="#B30738" />
           </button>
         </form>
         {showFeedbackModal && (
           <FeedbackDialog
-            user={{ name: user?.name ?? '' }}
-            peerInfo={{ userName: peerInfo?.userName ?? '' }}
+            user={{ name: user?.name ?? "" }}
+            peerInfo={{ userName: peerInfo?.userName ?? "" }}
             showFeedbackModal={showFeedbackModal}
             setShowFeedbackModal={setshowFeedbackModal}
             feedbackText={feedbackText}
@@ -350,21 +393,20 @@ const ChatSystem = () => {
             details={details}
             setDetails={setDetails}
             handleReportSubmit={handleReportSubmit}
-            user={{ name: user?.name ?? '' }}
-            peerInfo={{ userName: peerInfo?.userName ?? '' }}
+            user={{ name: user?.name ?? "" }}
+            peerInfo={{ userName: peerInfo?.userName ?? "" }}
           />
         )}
         {showMatchedUserModel && (
           <MatchDialog
             open={showMatchedUserModel}
             onClose={() => setShowMatchedUserModel(false)}
-            user={{ name: user?.name ?? '' }}
-            peerInfo={{ userName: peerInfo?.userName ?? '' }}
+            user={{ name: user?.name ?? "" }}
+            peerInfo={{ userName: peerInfo?.userName ?? "" }}
           />
         )}
       </div>
     </div>
-
   );
 };
 

@@ -1,15 +1,15 @@
-'use client';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
-import { useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
+"use client";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { FiMenu, FiX } from "react-icons/fi";
 
 export default function Header() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const pathname = usePathname();
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
 
-    // helper to check active link
-    const isActive = (href: string) => pathname === href;
+  // helper to check active link
+  const isActive = (href: string) => pathname === href;
 
     return (
         <>

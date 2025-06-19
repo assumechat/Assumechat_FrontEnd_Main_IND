@@ -1,5 +1,5 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { User, UserState } from '@/types/userstate';
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+import { User, UserState } from "@/types/userstate";
 const initialState: UserState = {
   user: null,
   accessToken: null,
@@ -7,10 +7,13 @@ const initialState: UserState = {
 };
 
 const userSlice = createSlice({
-  name: 'user',
+  name: "user",
   initialState,
   reducers: {
-    setUser: (state, action: PayloadAction<{ user: User; accessToken: string }>) => {
+    setUser: (
+      state,
+      action: PayloadAction<{ user: User; accessToken: string }>
+    ) => {
       state.user = action.payload.user;
       state.accessToken = action.payload.accessToken;
       state.isAuthenticated = true;
