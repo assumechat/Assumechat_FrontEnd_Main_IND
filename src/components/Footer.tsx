@@ -18,7 +18,7 @@ export function FooterSection() {
     const formData = {
       access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
       subject: "New Newsletter Subscriber",
-      from_name: "AssumeChat Newsletter",
+      from_name: "BizzSocial Newsletter",
       email,
     };
 
@@ -52,7 +52,7 @@ export function FooterSection() {
         <div className="flex justify-between flex-wrap items-start gap-20">
           {/* Brand & Description */}
           <div className="max-w-lg">
-            <h3 className="text-2xl font-bold text-[#B30738]">Bizzsocial</h3>
+            <h3 className="text-2xl font-bold text-[#B30738]">BizzSocial</h3>
             <p className="mt-4 text-sm text-gray-600">
               Meet students beyond your campus walls, spark unexpected
               conversations, and change your perspective — one chat at a time.
@@ -73,36 +73,36 @@ export function FooterSection() {
           {/* Quick Links */}
           <div>
             <h4 className="text-xl font-semibold text-gray-800 mb-4">
-              Quick Links
+              Features
             </h4>
             <ul className="space-y-2 text-gray-600">
               <li>
-                <Link href="#" className="hover:underline">
-                  About Us
+                <Link href="/ComingSoon" className="hover:underline">
+                  Mentorship
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
-                  Privacy Policy
+                <Link href="/ComingSoon" className="hover:underline">
+                  Dateing
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
-                  Terms of Service
+                <Link href="/ComingSoon" className="hover:underline">
+                  Notes
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
-                  Community Guidelines
+                <Link href="/ComingSoon" className="hover:underline">
+                  Community
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
+                <Link href="/ComingSoon" className="hover:underline">
                   Support
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
+                <Link href="/ComingSoon" className="hover:underline">
                   Contact Us
                 </Link>
               </li>
@@ -144,7 +144,7 @@ export function FooterSection() {
 
         {/* Footer Bottom */}
         <div className="border-t border-gray-300 mt-12 pt-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">
-          <p>© 2025 Bizzsocial. All rights reserved.</p>
+          <p>© 2025 BizzSocial. All rights reserved.</p>
           <div className="space-x-4 mt-4 md:mt-0">
             <Link href="#" className="hover:underline">
               Privacy Policy

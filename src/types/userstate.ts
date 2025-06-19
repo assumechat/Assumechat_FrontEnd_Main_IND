@@ -5,7 +5,7 @@ type User = {
   emailVerified: boolean;
   refreshTokens: string;
   userDataId: string;
-  isPermium: boolean;
+  isPremium: boolean;
   premiumExpiry: number; //date
   premiumTier: string;
   dailySkips: number;

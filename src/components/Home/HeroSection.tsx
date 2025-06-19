@@ -325,14 +325,14 @@ export default function HeroSection() {
         <ReviewCard
           index={0}
           positionClass=" md:top-20 w-50 md:left-1/6 top-12  right-1"
-          quote="All About aesthetics"
-          author="You care deeply about how things look and feel. If it's not beautiful, it’s not done."
+          quote="Sleepless Hustler"
+          author="Typical IIT Bombay. All night debug parties, caffeine shots, and JEE PTSD."
         />
         <ReviewCard
           index={1}
           positionClass="md:top-20 hidden md:flex w-60 md:right-1/6 top-40 right-4"
-          quote="Doodler"
-          author="You’ve got a sketchbook full of half-baked ideas and imaginary worlds waiting to be built."
+          quote="Mess Critique Extraordinaire"
+          author="From IIT Madras — because rating dal out of 10 is a weekly tradition."
           stars={2}
         />
 
@@ -340,15 +340,15 @@ export default function HeroSection() {
         <ReviewCard
           index={2}
           positionClass="md:top-1/3 md:left-1/12 w-64 top-48 left-4"
-          quote="Optimistic Overthinker"
-          author="You dream big but sometimes get stuck analyzing all the “what ifs” before you start."
+          quote="Startup Philosopher"
+          author="IIT Delhi’s startup scene turned you into a VC pitch machine overnight"
           stars={2}
         />
         <ReviewCard
           index={3}
           positionClass="md:top-1/2.5 hidden md:flex md:right-1/12 w-14 top-[45%] right-4"
-          quote="Feedback Fighter"
-          author="Every time someone gives you constructive criticism, you say “It’s a design choice.”"
+          quote="Quantum Meme Dealer"
+          author="You study at IIT Kanpur. Your memes have more quantum than your curriculum."
           stars={1}
         />
 
@@ -356,15 +356,15 @@ export default function HeroSection() {
         <ReviewCard
           index={4}
           positionClass="md:bottom-20 md:left-1/10 w-14 bottom-12 left-4"
-          quote="Big Mouth"
-          author="You learned HTML yesterday and now you’re critiquing Apple’s design decisions on Twitter."
+          quote="Midnight Mahabharata Analyst"
+          author="You once debated karma and thermodynamics at 2 AM in IIT KGP hostel."
           stars={1}
         />
         <ReviewCard
           index={5}
           positionClass="md:bottom-20 md:right-1/10 w-50 bottom-4 right-4"
-          quote="Strategist"
-          author="Calm in chaos, you’re the planner with the roadmap."
+          quote="IITian but Still Lost"
+          author="IIT Roorkee bred your confidence. Now you use it to question everything."
           stars={3}
         />
 
@@ -398,8 +398,8 @@ export default function HeroSection() {
         {/* Main Content */}
         <div className="relative pt-24 z-10 text-center px-4">
           <h1 className=" text-4xl md:text-6xl font-bold mb-6 ">
-            Your <span className="text-[#B30738]">Campas</span> Just <br /> Got
-            a Lot Bigger.
+            Your <span className="text-[#B30738]">IIT Campas</span> Just <br />{" "}
+            Got a Lot Bigger.
           </h1>
 
           <p className="text-gray-800 text-lg max-w-sm mx-auto mb-8">
@@ -419,8 +419,10 @@ export default function HeroSection() {
           </button>
 
           <p className="text-gray-600 text-md">
-            Because <span className="text-[#B30738]">Assumptions</span> Don’t
-            Define You.
+            Real <span className="text-[#B30738]">IITians</span>, real
+            connections <br /> — whether you're looking to{" "}
+            <span className="text-[#B30738]">collab, chat, or chill</span>
+            <br /> it starts with one anonymous message.
           </p>
         </div>
       </div>

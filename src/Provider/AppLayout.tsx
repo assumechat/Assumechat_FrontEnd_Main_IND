@@ -66,5 +66,14 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     );
   }
 
+  if (path === '/EarlyAccess' || path === "/OurTeam" || path === "Request") {
+    return (
+      <>
+        <Header />
+        {children}
+      </>
+    );
+  }
+
   return <>{children}</>;
 }

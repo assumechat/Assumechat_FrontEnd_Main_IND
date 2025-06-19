@@ -1,60 +1,62 @@
 import Testimonial from "@/types/Testimonials";
+
 const testimonialsData: Testimonial[] = [
     {
         id: 1,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Liam C.",
-        title: "RISD",
-        content: "Someone guessed I was an architecture major because of my 'structured takes.' I've never felt more seen.",
-        rating: 3
-    },
-    {
-        id: 2,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Jay S.",
-        title: "NYU",
-        content: "It's like meeting people in the campus coffee line... If the coffee line was anonymous and way more interesting.",
+        img: "",
+        name: "NightOwl_17",
+        title: "IIT Bombay",
+        content: "Someone thought I was a 'startup bro' just from my sarcasm. Honestly, fair.",
         rating: 4
     },
     {
-        id: 3,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Sam K.",
-        title: "Georgia Tech",
-        content: "Felt more connected in one random chat than in a month of awkward club meetings.",
+        id: 2,
+        img : "",
+        name: "ChaiFox",
+        title: "IIT Delhi",
+        content: "Reminds me of hostel chai talks... but spicier and anonymous.",
         rating: 5
     },
     {
-        id: 4,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Leah C.",
-        title: "Boston University",
-        content: "I met someone from another school who loves the same niche memes I do. 10/10 would assume again.",
-        rating: 2
-    },
-    {
-        id: 5,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Trevor P.",
-        title: "University of Michigan",
-        content: "No fitters, no bios, no weird DMs. Just real talk with real students. I wish I had this in my freshman year.",
+        id: 3,
+        img: "",
+        name: "LazyPanda",
+        title: "IIT Madras",
+        content: "Matched with someone who thought I was a gym rat. I'm literally typing this from my bed.",
         rating: 3
     },
     {
+        id: 4,
+        img: "",
+        name: "DebuggerCat",
+        title: "IIT Kanpur",
+        content: "Had a midnight convo about failing code and failing love. Peak catharsis.",
+        rating: 5
+    },
+    {
+        id: 5,
+        img: "",
+        name: "ByteTiger",
+        title: "IIT Roorkee",
+        content: "It’s like swiping… but with actual depth. No bios, no cringe.",
+        rating: 4
+    },
+    {
         id: 6,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Riya T.",
-        title: "UCLA",
-        content: "I joined out of curiosity and stayed for the chaos. One convo turned into a two-hour debate about soulmates and spaghetti.",
+        img: "",
+        name: "ParrotBot",
+        title: "IIT Kharagpur",
+        content: "Didn’t expect to meet a quiz partner who also hates linear algebra. Bless this app.",
         rating: 5
     },
     {
         id: 7,
-        img: "https://res.cloudinary.com/dipywb0lr/image/upload/v1746440790/samples/man-portrait.jpg",
-        name: "Simon M.",
-        title: "University of Chicago",
-        content: "I came here expecting cringe convos, but left with a playlist, a book rec, and someone who might be my new academic rival. 11/10 experience.",
-        rating: 3
+        img: "",
+        name: "CodeDog",
+        title: "IIT Hyderabad",
+        content: "I joined for laughs. Now I’ve got a daily debate partner and low-key a crush. Oops.",
+        rating: 4
     }
 ];
-export default testimonialsData
+
+export default testimonialsData;

@@ -28,10 +28,10 @@ export default function FnQsection() {
               value="item-1"
             >
               <AccordionTrigger className="md:text-xl text-md w-full font-semibold">
-                What is Bizzsocial?
+                What is BizzSocial?
               </AccordionTrigger>
               <AccordionContent className="text-sm md:text-lg">
-                Bizzsocial is a “reverse social-media” platform—think of it as
+                BizzSocial is a “reverse social-media” platform—think of it as
                 an exclusive Omegle just for your campus where you meet new
                 people first and let existing friends shape your online identity
                 later.
@@ -46,7 +46,7 @@ export default function FnQsection() {
               </AccordionTrigger>
               <AccordionContent className="text-sm md:text-lg">
                 Traditional networks start with people you know and reward
-                self-promotion. Bizzsocial flips both ideas: you’re paired
+                self-promotion. BizzSocial flips both ideas: you’re paired
                 anonymously with classmates you haven’t met, and only others can
                 add posts or “assumptions” to your profile, so your public image
                 is built from outside-in, not inside-out.
@@ -89,7 +89,7 @@ export default function FnQsection() {
               </AccordionTrigger>
               <AccordionContent className="text-sm md:text-lg">
                 The core experiment is to hear how others actually see you. By
-                outsourcing posts to friends and strangers, Bizzsocial exposes
+                outsourcing posts to friends and strangers, BizzSocial exposes
                 blind spots and unspoken perceptions you’d never discover on a
                 standard profile.
               </AccordionContent>
@@ -130,7 +130,7 @@ export default function FnQsection() {
                 How does AI fit in?
               </AccordionTrigger>
               <AccordionContent className="text-sm md:text-lg">
-                Bizzsocial’s bots nudge the dialogue: they suggest
+                AssumeChat’s bots nudge the dialogue: they suggest
                 curiosity-driven questions, predict helpful follow-ups and even
                 recommend short content clips
               </AccordionContent>
@@ -140,7 +140,7 @@ export default function FnQsection() {
               value="item-9"
             >
               <AccordionTrigger className="md:text-xl text-md w-full font-semibold">
-                Can Bizzsocial help with loneliness and mental wellbeing?
+                Can BizzSocial help with loneliness and mental wellbeing?
               </AccordionTrigger>
               <AccordionContent className="text-sm md:text-lg">
                 Yes—breaking “assumption loops” is the point. The system pairs
