@@ -398,7 +398,7 @@ export default function HeroSection() {
         {/* Main Content */}
         <div className="relative pt-24 z-10 text-center px-4">
           <h1 className=" text-4xl md:text-6xl font-bold mb-6 ">
-            Your <span className="text-[#B30738]">IIT Campas</span> Just <br />{" "}
+            Your <span className="text-[#B30738]">IIT Campus</span> Just <br />{" "}
             Got a Lot Bigger.
           </h1>
 
