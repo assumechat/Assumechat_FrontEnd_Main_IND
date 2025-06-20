@@ -1,7 +1,7 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
-import axios, { AxiosError } from "axios";
+import axios from "axios";
 import { toast } from "sonner";
 import EarlyAccessForm from "@/components/EarlyAccess/form"; // Adjust the import path as needed
 
@@ -13,7 +13,7 @@ export default function ClaimEarlyAccessPage() {
   const [name, setName] = useState<string>("");
   const [showPopUp, setShowPopup] = useState<boolean>(false);
 
-  async function handleSubmit() {
+  async function handleSubmit(): Promise<void> {
     try {
       const earlyAccessUser = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}early-access-form/getUserByEmail`,
@@ -25,7 +25,8 @@ export default function ClaimEarlyAccessPage() {
         }
       );
       if (earlyAccessUser.data.data) {
-        return toast.error("You have already submitted the form");
+        toast.error("You have already submitted the form");
+        return;
       }
       const number = await axios.get(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}early-access-form/number`
@@ -47,7 +48,7 @@ export default function ClaimEarlyAccessPage() {
         }
       );
       toast.success("Form submitted");
-      return router.push("/thanku");
+      router.push("/thanku");
     } catch (error: any) {
       toast.error(
         error.response?.data?.message || "An unexpected error occurred"
