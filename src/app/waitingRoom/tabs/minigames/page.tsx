@@ -20,16 +20,21 @@ const MiniGamesSection = () => {
 
   const regularGames = retroGames.filter(game => !game.isPremium);
   const premiumGames = retroGames.filter(game => game.isPremium);
-
+  console.log(premiumGames.length)
   return (
     <div className="flex mt-12 flex-col md:mt-28 justify-start w-full bg-white overflow-hidden px-4 sm:px-6 lg:px-8 py-8">
       {/* Featured Games Section */}
       <div className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Featured Games
-        </h2>
+        <div className="flex items-center justify-between mb-6">
+          <h2 className="text-2xl font-bold text-gray-900">
+            Trending Featured Games
+          </h2>
+          <span className="bg-purple-100 text-purple-800 text-xs font-medium px-2.5 py-0.5 rounded">
+            Free
+          </span>
+        </div>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularGames.slice(0, retroGames.length).map((game) => (
+          {regularGames.map((game) => (
             <div
               key={game.name}
               className="border border-black rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
@@ -98,7 +103,7 @@ const MiniGamesSection = () => {
             </span>
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {premiumGames.slice(0, 2).map((game) => (
+            {premiumGames.map((game) => (
               <div
                 key={game.name}
                 className="border-2 border-gray-300 rounded-lg overflow-hidden relative"
@@ -129,37 +134,6 @@ const MiniGamesSection = () => {
           </div>
         </div>
       )}
-
-      {/* Trending Games Section */}
-      <div className="mb-12">
-        <h2 className="text-2xl font-bold text-gray-900 mb-6">
-          Trending Games
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {regularGames
-            .slice(retroGames.length === 2 ? 0 : Math.floor(retroGames.length / 2))
-            .slice(0, retroGames.length === 2 ? 2 : undefined)
-            .map((game) => (
-              <div
-                key={game.name}
-                className="border border-black rounded-lg overflow-hidden hover:shadow-lg transition-shadow"
-              >
-                <Link href={`/waitingRoom/tabs/minigames/games?game=${game.id}`}>
-                  <div className="relative h-60 w-full">
-                    <Image
-                      src={game.imgUrl}
-                      alt={game.name}
-                      fill
-                      className="object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      unoptimized
-                    />
-                  </div>
-                </Link>
-              </div>
-            ))}
-        </div>
-      </div>
     </div>
   );
 };

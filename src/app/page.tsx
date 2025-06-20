@@ -9,6 +9,7 @@ import privactcard from "@/Data/Privary"
 import TestimonialsSection from '@/components/Home/Testimonials';
 import FnQsection from '@/components/Home/FnQs';
 import Universities from '@/components/Home/Universities';
+import MadeInIndiaPage from '@/components/Home/MADEInIndia';
 export default function LandingPage() {
 
 
@@ -19,7 +20,7 @@ export default function LandingPage() {
       <ExperienceSection />
       <HowItWorksSection title='Your Safety & Privacy is Our Priority' description='Advanced security measures to ensure safe and private interactions' Data={privactcard} />
       <TestimonialsSection/>
-      <Universities/>
+      <MadeInIndiaPage/>
       <FnQsection/>
     </>
   );

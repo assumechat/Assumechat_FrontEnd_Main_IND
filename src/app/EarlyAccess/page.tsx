@@ -8,6 +8,8 @@ import axios from "axios";
 import { useAppSelector } from "@/store/hooks";
 import { toast } from "sonner";
 import { setUser } from "@/store/slices/userSlice";
+import MadeInIndiaPage from "@/components/Home/MADEInIndia";
+import { FooterSection } from "@/components/Footer";
 
 export default function EarlyAccessPage() {
   const reviewsRef = useRef<HTMLDivElement[]>([]);
@@ -72,38 +74,31 @@ export default function EarlyAccessPage() {
         reviewsRef.current.forEach((review, index) => {
           const delay = index * 0.2;
           if (index < 2) {
-            review.style.transform = `translateY(${
-              Math.sin(time + delay) * 10
-            }px)`;
+            review.style.transform = `translateY(${Math.sin(time + delay) * 10
+              }px)`;
           } else if (index < 4) {
-            review.style.transform = `translateX(${
-              Math.sin(time + delay) * 15
-            }px)`;
+            review.style.transform = `translateX(${Math.sin(time + delay) * 15
+              }px)`;
           } else {
-            review.style.transform = `translateY(${
-              Math.sin(time + delay) * 8
-            }px) translateX(${Math.cos(time + delay) * 12}px)`;
+            review.style.transform = `translateY(${Math.sin(time + delay) * 8
+              }px) translateX(${Math.cos(time + delay) * 12}px)`;
           }
         });
 
         iconsRef.current.forEach((icon, index) => {
           const delay = index * 0.3;
           if (index === 0) {
-            icon.style.transform = `translateY(${
-              Math.sin(time + delay) * 8
-            }px) rotate(${Math.sin(time + delay) * 5}deg)`;
+            icon.style.transform = `translateY(${Math.sin(time + delay) * 8
+              }px) rotate(${Math.sin(time + delay) * 5}deg)`;
           } else if (index === 1) {
-            icon.style.transform = `translateX(${
-              Math.cos(time + delay) * 10
-            }px) rotate(${Math.cos(time + delay) * 8}deg)`;
+            icon.style.transform = `translateX(${Math.cos(time + delay) * 10
+              }px) rotate(${Math.cos(time + delay) * 8}deg)`;
           } else if (index === 2) {
-            icon.style.transform = `translateY(${
-              Math.sin(time + delay) * 6
-            }px) rotate(${Math.sin(time + delay) * 6}deg)`;
+            icon.style.transform = `translateY(${Math.sin(time + delay) * 6
+              }px) rotate(${Math.sin(time + delay) * 6}deg)`;
           } else {
-            icon.style.transform = `translateX(${
-              Math.cos(time + delay) * 12
-            }px) rotate(${Math.cos(time + delay) * 10}deg)`;
+            icon.style.transform = `translateX(${Math.cos(time + delay) * 12
+              }px) rotate(${Math.cos(time + delay) * 10}deg)`;
           }
         });
 
@@ -503,6 +498,8 @@ export default function EarlyAccessPage() {
           </p>
         </div>
       </div>
+      <MadeInIndiaPage />
+      <FooterSection />
     </>
   );
 }
