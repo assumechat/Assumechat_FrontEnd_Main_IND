@@ -200,16 +200,15 @@ export default function InterestSelection() {
                     (step === 3 && selectedOption === null)
                   }
                   className={`w-60 py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium text-sm sm:text-base transition-colors
-                        ${
-                          (step === 1 &&
-                            academicData.university &&
-                            academicData.course &&
-                            academicData.year) ||
-                          (step === 2 && selectedInterests.length > 0) ||
-                          (step === 3 && selectedOption !== null)
-                            ? "bg-[#B30738] text-white hover:bg-[#9a0630]"
-                            : "bg-gray-100 text-gray-400 cursor-not-allowed"
-                        }
+                        ${(step === 1 &&
+                      academicData.university &&
+                      academicData.course &&
+                      academicData.year) ||
+                      (step === 2 && selectedInterests.length > 0) ||
+                      (step === 3 && selectedOption !== null)
+                      ? "bg-[#B30738] text-white hover:bg-[#9a0630]"
+                      : "bg-gray-100 text-gray-400 cursor-not-allowed"
+                    }
     `}
                 >
                   {step < 3 ? "Continue" : "Finish"}

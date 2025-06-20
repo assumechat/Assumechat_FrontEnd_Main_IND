@@ -6,7 +6,8 @@ const retroGames = [
         description: "Side-scrolling platformer where Mario races through the Mushroom Kingdom to rescue Princess Peach.",
         type: "One Player",
         quote: "Played by 42% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747842295/Super_Mario_Bros_E_zuwm1w.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747842295/Super_Mario_Bros_E_zuwm1w.nes",
+        isPremium: false
     },
     {
         id: 5,
@@ -15,7 +16,8 @@ const retroGames = [
         description: "Run-and-gun action game where players battle alien forces through side-scrolling levels.",
         type: "Two Player (co-op)",
         quote: "Played by 55% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747912655/Contra_U_mzqikg.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747912655/Contra_U_mzqikg.nes",
+        isPremium: true
     },
     {
         id: 4,
@@ -24,7 +26,8 @@ const retroGames = [
         description: "Tile-matching puzzle game of stacking falling tetrominoes to clear lines.",
         type: "One Player",
         quote: "Played by 50% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747912655/Tetris_U_u1sx1k.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747912655/Tetris_U_u1sx1k.nes",
+        isPremium: true
     },
     {
         id: 10,
@@ -33,7 +36,8 @@ const retroGames = [
         description: "One-on-one fighting game featuring a roster of pixelated martial artists battling in the King of Iron Fist Tournament.",
         type: "Two Player",
         quote: "Played by 40% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794007/Tekken_2_xtok5y.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794007/Tekken_2_xtok5y.nes",
+        isPremium: true
     },
     {
         id: 3,
@@ -42,7 +46,8 @@ const retroGames = [
         description: "Top-down maze chase game, gobble dots and avoid ghosts to rack up points.",
         type: "Two Player (alternating)",
         quote: "Played by 35% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794212/Pac-Man_Europe_ppogfw.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794212/Pac-Man_Europe_ppogfw.nes",
+        isPremium: true
     },
     {
         id: 9,
@@ -51,7 +56,8 @@ const retroGames = [
         description: "Side-scrolling motocross race where two riders go head-to-head on obstacle-filled tracks while avoiding hazards and rivals.",
         type: "Two Player (alternating)",
         quote: "Played by 33% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794006/Excitebike_VS_we8a1w.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794006/Excitebike_VS_we8a1w.nes",
+        isPremium: true
     },
     {
         id: 7,
@@ -60,7 +66,8 @@ const retroGames = [
         description: "Retro cricket simulation where you bat and bowl for your country on classic pixelated pitches.",
         type: "Two Player (alternating)",
         quote: "Played by 30% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748793994/International_Cricket_E_tpihup.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748793994/International_Cricket_E_tpihup.nes",
+        isPremium: true
     },
     {
         id: 2,
@@ -69,7 +76,8 @@ const retroGames = [
         description: "Open-world action-adventure quest to collect the Triforce pieces and save Hyrule.",
         type: "One Player",
         quote: "Played by 28% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747912657/Legend_of_Zelda_The_U_PRG1_e1e66m.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747912657/Legend_of_Zelda_The_U_PRG1_e1e66m.nes",
+        isPremium: true
     },
     {
         id: 8,
@@ -78,7 +86,8 @@ const retroGames = [
         description: "Top-down racing game where you drive a Formula 1 car around international circuits, competing for the championship.",
         type: "One Player",
         quote: "Played by 25% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794005/F-1_Race_J_p1_zkitq8.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1748794005/F-1_Race_J_p1_zkitq8.nes",
+        isPremium: false
     },
     {
         id: 6,
@@ -87,7 +96,8 @@ const retroGames = [
         description: "Iconic one-on-one fighting game with a roster of global warriors.",
         type: "Two Player",
         quote: "Played by 22% of our users",
-        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747913835/Street_Fighter_3_g9khje.nes"
+        nesUrl: "https://res.cloudinary.com/dipywb0lr/raw/upload/v1747913835/Street_Fighter_3_g9khje.nes",
+        isPremium: true
     },
 
 ];

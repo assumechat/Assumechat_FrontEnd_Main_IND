@@ -1,13 +1,13 @@
-"use client";
-import { UserState } from "@/types/userstate";
-import { usePathname } from "next/navigation";
-import Link from "next/link";
-import { useState } from "react";
-import { FiMenu, FiX } from "react-icons/fi";
-import { useSelector, useDispatch } from "react-redux";
-import { logoutUser } from "@/lib/logout";
-import { logout } from "@/store/slices/userSlice";
-import { useRouter } from "next/navigation";
+'use client';
+import { UserState } from '@/types/userstate';
+import { usePathname } from 'next/navigation';
+import Link from 'next/link';
+import { useState } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { useSelector, useDispatch } from 'react-redux';
+import { logoutUser } from '@/lib/logout';
+import { logout } from '@/store/slices/userSlice';
+import { useRouter } from 'next/navigation';
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,9 +17,7 @@ export default function Header() {
   const [showAboutUsMobile, setShowAboutUsMobile] = useState(false);
 
   const user = useSelector((state: { user: UserState }) => state.user.user);
-  const isAuthenticated = useSelector(
-    (state: { user: UserState }) => state.user.isAuthenticated
-  );
+  const isAuthenticated = useSelector((state: { user: UserState }) => state.user.isAuthenticated);
 
   const router = useRouter();
   const dispatch = useDispatch();
@@ -62,8 +60,19 @@ export default function Header() {
   return (
     <>
       <header className="w-full fixed px-4 md:px-20 py-4 flex items-center justify-between border-b border-gray-200 bg-opacity-30 backdrop-blur-[2px] z-50">
-        <div className="text-2xl font-bold text-[#B30738]">
-          <Link href="/">BizzSocial</Link>
+        <div className="flex flex-col">
+          <div className="text-2xl font-bold text-[#B30738]">
+            <Link href="/">BizzSocial</Link>
+          </div>
+          <span className="text-xs text-gray-500 font-medium flex items-center gap-1">
+            Made In
+            <img
+              src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
+              alt="India Flag"
+              style={{ width: '18px', height: '12px', display: 'inline', verticalAlign: 'middle' }}
+            />
+            For INDIA
+          </span>
         </div>
 
         <button
@@ -83,11 +92,10 @@ export default function Header() {
               ].map(({ label, items }) => (
                 <div key={label} className="relative group">
                   <span
-                    className={`py-2 cursor-pointer ${
-                      pathname === "/ComingSoon"
-                        ? "text-[#B30738] border-b-2 border-[#B30738]"
-                        : "text-gray-700 hover:text-[#B30738]"
-                    } transition`}
+                    className={`py-2 cursor-pointer ${pathname === "/ComingSoon"
+                      ? "text-[#B30738] border-b-2 border-[#B30738]"
+                      : "text-gray-700 hover:text-[#B30738]"
+                      } transition`}
                   >
                     {label}
                   </span>
@@ -110,21 +118,19 @@ export default function Header() {
             <>
               <Link
                 href="/waitingRoom"
-                className={`py-2 ${
-                  isActive("/waitingRoom")
-                    ? "text-[#B30738] border-b-2 border-[#B30738]"
-                    : "text-gray-700 hover:text-[#B30738]"
-                } transition`}
+                className={`py-2 ${isActive("/waitingRoom")
+                  ? "text-[#B30738] border-b-2 border-[#B30738]"
+                  : "text-gray-700 hover:text-[#B30738]"
+                  } transition`}
               >
                 Waiting Room
               </Link>
               <Link
                 href="/ComingSoon"
-                className={`py-2 ${
-                  isActive("/ComingSoon")
-                    ? "text-[#B30738] border-b-2 border-[#B30738]"
-                    : "text-gray-700 hover:text-[#B30738]"
-                } transition`}
+                className={`py-2 ${isActive("/ComingSoon")
+                  ? "text-[#B30738] border-b-2 border-[#B30738]"
+                  : "text-gray-700 hover:text-[#B30738]"
+                  } transition`}
               >
                 Profile
               </Link>
@@ -137,11 +143,10 @@ export default function Header() {
             <Link
               href="/signin"
               onClick={handleLogout}
-              className={`px-6 md:px-12 py-2 border border-[#B30738] rounded-lg ${
-                isActive("/signin")
-                  ? "bg-gray-300 text-black"
-                  : "bg-white text-[#B30738] hover:bg-gray-100"
-              } transition`}
+              className={`px-6 md:px-12 py-2 border border-[#B30738] rounded-lg ${isActive("/signin")
+                ? "bg-gray-300 text-black"
+                : "bg-white text-[#B30738] hover:bg-gray-100"
+                } transition`}
             >
               Log Out
             </Link>
@@ -149,21 +154,19 @@ export default function Header() {
             <>
               <Link
                 href="/signin"
-                className={`px-6 md:px-12 py-2 border border-[#B30738] rounded-lg ${
-                  isActive("/signin")
-                    ? "bg-gray-300 text-black"
-                    : "bg-white text-[#B30738] hover:bg-gray-100"
-                } transition`}
+                className={`px-6 md:px-12 py-2 border border-[#B30738] rounded-lg ${isActive("/signin")
+                  ? "bg-gray-300 text-black"
+                  : "bg-white text-[#B30738] hover:bg-gray-100"
+                  } transition`}
               >
                 Sign In
               </Link>
               <Link
                 href="/signup"
-                className={`px-6 md:px-12 py-2 rounded-lg ${
-                  isActive("/signup")
-                    ? "bg-red-800 text-white"
-                    : "bg-[#B30738] text-white hover:bg-[#95052c]"
-                } transition`}
+                className={`px-6 md:px-12 py-2 rounded-lg ${isActive("/signup")
+                  ? "bg-red-800 text-white"
+                  : "bg-[#B30738] text-white hover:bg-[#95052c]"
+                  } transition`}
               >
                 Sign Up
               </Link>
@@ -228,22 +231,20 @@ export default function Header() {
               <>
                 <Link
                   href="/waitingRoom"
-                  className={`py-2 px-4 ${
-                    isActive("/waitingRoom")
-                      ? "text-[#B30738] font-bold"
-                      : "text-gray-700 hover:text-[#B30738]"
-                  }`}
+                  className={`py-2 px-4 ${isActive("/waitingRoom")
+                    ? "text-[#B30738] font-bold"
+                    : "text-gray-700 hover:text-[#B30738]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Waiting Room
                 </Link>
                 <Link
                   href="/ComingSoon"
-                  className={`py-2 px-4 ${
-                    isActive("/ComingSoon")
-                      ? "text-[#B30738] font-bold"
-                      : "text-gray-700 hover:text-[#B30738]"
-                  }`}
+                  className={`py-2 px-4 ${isActive("/ComingSoon")
+                    ? "text-[#B30738] font-bold"
+                    : "text-gray-700 hover:text-[#B30738]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Profile
@@ -255,11 +256,7 @@ export default function Header() {
               {isAuthenticated ? (
                 <Link
                   href="/"
-                  className={`px-6 py-2 border border-[#B30738] rounded-lg text-center ${
-                    isActive("/signin")
-                      ? "bg-gray-300 text-black"
-                      : "bg-white text-[#B30738] hover:bg-gray-100"
-                  }`}
+                  className={`px-6 py-2 border border-[#B30738] rounded-lg text-center ${isActive('/signin') ? 'bg-gray-300 text-black' : 'bg-white text-[#B30738] hover:bg-gray-100'}`}
                   onClick={() => {
                     handleLogout();
                     setIsMenuOpen(false);
@@ -271,22 +268,14 @@ export default function Header() {
                 <>
                   <Link
                     href="/signin"
-                    className={`px-6 py-2 border border-[#B30738] rounded-lg text-center ${
-                      isActive("/signin")
-                        ? "bg-gray-300 text-black"
-                        : "bg-white text-[#B30738] hover:bg-gray-100"
-                    }`}
+                    className={`px-6 py-2 border border-[#B30738] rounded-lg text-center ${isActive('/signin') ? 'bg-gray-300 text-black' : 'bg-white text-[#B30738] hover:bg-gray-100'}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Sign In
                   </Link>
                   <Link
                     href="/signup"
-                    className={`px-6 py-2 rounded-lg text-center ${
-                      isActive("/signup")
-                        ? "bg-red-800 text-white"
-                        : "bg-[#B30738] text-white hover:bg-[#95052c]"
-                    }`}
+                    className={`px-6 py-2 rounded-lg text-center ${isActive('/signup') ? 'bg-red-800 text-white' : 'bg-[#B30738] text-white hover:bg-[#95052c]'}`}
                     onClick={() => setIsMenuOpen(false)}
                   >
                     Sign Up

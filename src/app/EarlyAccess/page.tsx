@@ -3,7 +3,10 @@ import { useRef, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "sonner";
-import EarlyAccessForm from "@/components/EarlyAccess/form"; // Adjust the import path as needed
+import EarlyAccessForm from "@/components/EarlyAccess/form";
+import { setUser } from "@/store/slices/userSlice";
+import MadeInIndiaPage from "@/components/Home/MADEInIndia";
+import { FooterSection } from "@/components/Footer";
 
 export default function ClaimEarlyAccessPage() {
   const reviewsRef = useRef<HTMLDivElement[]>([]);
@@ -500,6 +503,8 @@ export default function ClaimEarlyAccessPage() {
           </p>
         </div>
       </div>
+      <MadeInIndiaPage />
+      <FooterSection />
 
       {/* Early Access Form Dialog */}
       <EarlyAccessForm

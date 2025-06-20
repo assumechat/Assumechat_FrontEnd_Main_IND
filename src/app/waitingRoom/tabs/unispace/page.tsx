@@ -148,7 +148,6 @@ export default function CardsPage() {
   };
   const onClose = () => {
     setOpenPopUp(false);
-    router.back();
   };
   if (OpenPopUp) {
     return (
@@ -188,11 +187,10 @@ export default function CardsPage() {
               {cards.map((card) => (
                 <div
                   key={card.id}
-                  className={`absolute flex flex-col justify-between border border-black p-4 rounded-lg shadow-lg transition-all duration-300 ${
-                    card.isBurst === BurstStatus.TRUE
-                      ? "bg-gray-300 opacity-30 blur-[2px] pointer-events-none"
-                      : "bg-white bg-opacity-80 backdrop-blur-md"
-                  }`}
+                  className={`absolute flex flex-col justify-between border border-black p-4 rounded-lg shadow-lg transition-all duration-300 ${card.isBurst === BurstStatus.TRUE
+                    ? "bg-gray-300 opacity-30 blur-[2px] pointer-events-none"
+                    : "bg-white bg-opacity-80 backdrop-blur-md"
+                    }`}
                   style={{
                     width: 240,
                     // note: w-60 ≈ 240px

@@ -12,9 +12,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Bizz Social ",
-  description: "Your Campus Just Got a Lot Bigger.",
-};
+  title: 'Bizz Social ',
+  description: 'Your Campus Just Got a Lot Bigger.',
+}
 
 export default function RootLayout({
   children,
