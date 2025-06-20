@@ -195,12 +195,9 @@ export default function Header() {
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                   <button className="relative h-8 w-8 rounded-full overflow-hidden bg-gray-200 hover:bg-gray-300 transition-colors focus:outline-none focus:ring-0 focus:ring-offset-0">
-                    {user?.profilePicture ? (
-                      <img
-                        src={user.profilePicture}
-                        alt="Profile"
-                        className="h-full w-full object-cover"
-                      />
+                    {user ? (
+                      //  <img     src={'http://cloudinary link '} alt="Profile" className="h-full w-full object-cover" />
+                      <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
                     ) : (
                       <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
                     )}
@@ -324,12 +321,9 @@ export default function Header() {
                 <div className="border-t border-gray-200 pt-4 mt-4">
                   <div className="flex items-center space-x-3 px-4 py-2">
                     <div className="h-8 w-8 rounded-full overflow-hidden bg-gray-200">
-                      {user?.profilePicture ? (
-                        <img
-                          src={user.profilePicture}
-                          alt="Profile"
-                          className="h-full w-full object-cover"
-                        />
+                      {user ? (
+                        //<img src={user.profilePicture} alt="Profile" className="h-full w-full object-cover" />
+                        <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
                       ) : (
                         <FiUser className="h-4 w-4 text-gray-600 m-auto mt-2" />
                       )}
