@@ -1,50 +1,50 @@
-'use client';
+"use client";
 
-import React, { useState } from 'react';
-import { useRouter } from 'next/navigation';
-import { Instagram, Facebook, SendIcon } from 'lucide-react';
-import { BsTwitterX } from 'react-icons/bs';
-import Link from 'next/link';
+import React, { useState } from "react";
+import { useRouter } from "next/navigation";
+import { Instagram, Facebook, SendIcon } from "lucide-react";
+import { BsTwitterX } from "react-icons/bs";
+import Link from "next/link";
 
 export function FooterSection() {
-    const [email, setEmail] = useState('');
-    const [loading, setLoading] = useState(false);
-    const router = useRouter();
+  const [email, setEmail] = useState("");
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
-    const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-        e.preventDefault();
-        setLoading(true);
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setLoading(true);
 
         const formData = {
             access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
             subject: 'New Newsletter Subscriber',
-            from_name: 'AssumeChat Newsletter',
+            from_name: 'BizzSocial Newsletter',
             email,
         };
 
-        try {
-            const res = await fetch('https://api.web3forms.com/submit', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(formData),
-            });
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-            const data = await res.json();
+      const data = await res.json();
 
-            if (data.success) {
-                router.push('/thanku');
-            } else {
-                alert('Something went wrong. Please try again.');
-            }
-        } catch (error) {
-            console.error('Newsletter submission error:', error);
-            alert('Submission failed.');
-        } finally {
-            setLoading(false);
-        }
-    };
+      if (data.success) {
+        router.push("/thanku");
+      } else {
+        alert("Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Newsletter submission error:", error);
+      alert("Submission failed.");
+    } finally {
+      setLoading(false);
+    }
+  };
 
     return (
         <footer className="bg-white bg-opacity-10 backdrop-blur-md py-14 md:px-12 mt-16">
@@ -52,7 +52,7 @@ export function FooterSection() {
                 <div className="flex justify-between flex-wrap items-start gap-20">
                     {/* Brand & Description */}
                     <div className="max-w-lg">
-                        <h3 className="text-2xl font-bold text-[#B30738]">AssumeChat</h3>
+                        <h3 className="text-2xl font-bold text-[#B30738]">BizzSocial</h3>
                         <p className="mt-4 text-sm text-gray-600">
                             Meet students beyond your campus walls, spark unexpected conversations, and change your perspective — one chat at a time.
                         </p>
@@ -71,46 +71,53 @@ export function FooterSection() {
 
                     {/* Quick Links */}
                     <div>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Quick Links</h4>
+                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Features</h4>
                         <ul className="space-y-2 text-gray-600">
-                            <li><Link href="#" className="hover:underline">About Us</Link></li>
-                            <li><Link href="#" className="hover:underline">Privacy Policy</Link></li>
-                            <li><Link href="#" className="hover:underline">Terms of Service</Link></li>
-                            <li><Link href="#" className="hover:underline">Community Guidelines</Link></li>
-                            <li><Link href="#" className="hover:underline">Support</Link></li>
-                            <li><Link href="#" className="hover:underline">Contact Us</Link></li>
+                            <li><Link href="/ComingSoon" className="hover:underline">Mentorship</Link></li>
+                            <li><Link href="/ComingSoon" className="hover:underline">Dateing</Link></li>
+                            <li><Link href="/ComingSoon" className="hover:underline">Notes</Link></li>
+                            <li><Link href="/ComingSoon" className="hover:underline">Community</Link></li>
+                            <li><Link href="/ComingSoon" className="hover:underline">Support</Link></li>
+                            <li><Link href="/ComingSoon" className="hover:underline">Contact Us</Link></li>
                         </ul>
                     </div>
 
-                    {/* Newsletter */}
-                    <div>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Stay Updated</h4>
-                        <p className="text-gray-600 mb-4">Subscribe to our newsletter for latest updates</p>
+          {/* Newsletter */}
+          <div>
+            <h4 className="text-xl font-semibold text-gray-800 mb-4">
+              Stay Updated
+            </h4>
+            <p className="text-gray-600 mb-4">
+              Subscribe to our newsletter for latest updates
+            </p>
 
-                        <form onSubmit={handleSubmit} className="flex gap-2 w-full max-w-sm">
-                            <input
-                                type="email"
-                                name="email"
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                                placeholder="Enter your email"
-                                className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none"
-                            />
-                            <button
-                                type="submit"
-                                disabled={loading}
-                                className="p-2 border border-gray-400 py-2 rounded-md text-white"
-                            >
-                                <SendIcon color="#B30738" />
-                            </button>
-                        </form>
-                    </div>
-                </div>
+            <form
+              onSubmit={handleSubmit}
+              className="flex gap-2 w-full max-w-sm"
+            >
+              <input
+                type="email"
+                name="email"
+                required
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                placeholder="Enter your email"
+                className="w-full px-4 py-2 rounded-md border border-gray-300 focus:outline-none"
+              />
+              <button
+                type="submit"
+                disabled={loading}
+                className="p-2 border border-gray-400 py-2 rounded-md text-white"
+              >
+                <SendIcon color="#B30738" />
+              </button>
+            </form>
+          </div>
+        </div>
 
                 {/* Footer Bottom */}
                 <div className="border-t border-gray-300 mt-12 pt-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">
-                    <p>© 2025 AssumeChat. All rights reserved.</p>
+                    <p>© 2025 BizzSocial. All rights reserved.</p>
                     <div className="space-x-4 mt-4 md:mt-0">
                         <Link href="#" className="hover:underline">Privacy Policy</Link>
                         <Link href="#" className="hover:underline">Terms of Service</Link>

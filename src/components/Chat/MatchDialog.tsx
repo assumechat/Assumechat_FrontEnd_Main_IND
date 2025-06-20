@@ -13,7 +13,7 @@ type MatchDialogProps = {
 export default function MatchDialog({ open, onClose, user, peerInfo }: MatchDialogProps) {
     return (
         <Dialog open={open} onOpenChange={onClose}>
-            <DialogContent className="max-w-5xl p-0 overflow-hidden bg-white rounded-2xl shadow-xl">
+            <DialogContent className="max-w-4xl p-0 overflow-hidden bg-white rounded-2xl shadow-xl">
                 <div className="min-h-[600px] bg-white flex flex-col items-center justify-center text-center px-4 py-12 relative overflow-hidden">
                     {/* Top-left SVG */}
                     <div className="absolute top-0 left-0 -translate-x-1/4 -translate-y-1/4 sm:-translate-x-1/3 sm:-translate-y-1/3">
@@ -42,7 +42,7 @@ export default function MatchDialog({ open, onClose, user, peerInfo }: MatchDial
                             viewBox="0 0 361 396"
                             fill="none"
                             xmlns="http://www.w3.org/2000/svg"
-                            className="w-[240px] h-[263px] sm:w-[361px] sm:h-[396px]"
+                            className="w-[200px] h-[243px] sm:w-[361px] sm:h-[396px]"
                         >
                             <g filter="url(#filter0_f_380_154529)">
                                 <circle cx="197.518" cy="197.518" r="149.018" stroke="#B30738" />
@@ -58,8 +58,8 @@ export default function MatchDialog({ open, onClose, user, peerInfo }: MatchDial
 
                     {/* Heading */}
                     <h1 className="text-4xl font-bold text-black mb-2 z-10">You Just Got Matched!</h1>
-                    <p className="text-gray-600 mb-8 z-10">
-                        You're now chatting with <span className="text-rose-700 font-semibold">{peerInfo?.userName}</span>.{" "}
+                    <p className="text-gray-600 max-w-xl mb-8 z-10">
+                        You're now chatting with <span className="text-rose-700 font-semibold">{peerInfo?.userName}</span>. <br className='md:hidden' /> {" "}
                         <span className="text-black">Hang out or skip when you're ready.</span>
                     </p>
 

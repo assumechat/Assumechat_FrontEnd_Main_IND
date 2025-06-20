@@ -7,4 +7,5 @@ export interface gametypes {
     type: string
     quote: string
     nesUrl: string
+    isPremium: boolean
 }

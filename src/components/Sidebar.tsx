@@ -69,8 +69,19 @@ const Header = () => {
         <>
             <header className="w-full fixed px-4 md:px-20 py-4 flex items-center justify-between bg-white z-50">
                 {/* Logo */}
-                <div className="text-2xl font-bold text-[#B30738]">
-                    <Link href="/">AssumeChat</Link>
+                <div className="flex flex-col">
+                    <div className="text-2xl font-bold text-[#B30738]">
+                        <Link href="/">BizzSocial</Link>
+                    </div>
+                    <span className="text-xs text-gray-500 font-medium flex items-center gap-1">
+                        Made In
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
+                            alt="India Flag"
+                            style={{ width: '18px', height: '12px', display: 'inline', verticalAlign: 'middle' }}
+                        />
+                        For INDIA
+                    </span>
                 </div>
 
                 {/* Mobile Menu Button */}
@@ -108,7 +119,7 @@ const Header = () => {
                             { label: 'About Us', href: '/ComingSoon' },
                         ].map(({ label, href }) => (
                             <Link
-                                 key={`${label}-${href}`}
+                                key={`${label}-${href}`}
                                 href={href}
                                 className={`py-2 ${isActive(href)
                                     ? 'text-[#B30738] border-b-2 border-[#B30738]'
