@@ -1,11 +1,11 @@
-'use client';
-import { FooterSection } from "@/components/Footerforauth"
-import Header from "@/components/HeaderforAuth"
+"use client";
+import { FooterSection } from "@/components/Footerforauth";
+import Header from "@/components/HeaderforAuth";
 import { Toaster } from "sonner";
-import { useEffect } from 'react';
-import { useAppSelector, useAppDispatch } from '@/store/hooks';
-import { initSockets, joinQueue, leaveQueue } from '@/store/slices/socketSlice';
-import { useRouter } from 'next/navigation';
+import { useEffect } from "react";
+import { useAppSelector, useAppDispatch } from "@/store/hooks";
+import { initSockets, joinQueue, leaveQueue } from "@/store/slices/socketSlice";
+import { useRouter } from "next/navigation";
 
 export default function Layout({
     children,
