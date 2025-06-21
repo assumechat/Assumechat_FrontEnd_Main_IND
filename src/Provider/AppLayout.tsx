@@ -66,13 +66,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     );
   }
 
-  if (
-    path === "/OurTeam" ||
-    path === "Request" ||
-    path === "/mentorship" ||
-    path === "/study-partner" ||
-    path === "/notes-community"
-  ) {
+  if (path === "/OurTeam" || path === "Request") {
     return (
       <>
         <Header />
