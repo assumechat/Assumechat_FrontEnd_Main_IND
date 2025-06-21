@@ -119,11 +119,10 @@ export default function Header() {
               ].map(({ label, items }) => (
                 <div key={label} className="relative group">
                   <span
-                    className={`py-2 cursor-pointer ${
-                      pathname === "/ComingSoon"
-                        ? "text-[#B30738] border-b-2 border-[#B30738]"
-                        : "text-gray-700 hover:text-[#B30738]"
-                    } transition`}
+                    className={`py-2 cursor-pointer ${pathname === "/ComingSoon"
+                      ? "text-[#B30738] border-b-2 border-[#B30738]"
+                      : "text-gray-700 hover:text-[#B30738]"
+                      } transition`}
                   >
                     {label}
                   </span>
@@ -146,42 +145,38 @@ export default function Header() {
             <>
               <Link
                 href="/ComingSoon"
-                className={`py-2 ${
-                  isActive("/Mentorship")
-                    ? "text-[#B30738] border-b-2 border-[#B30738]"
-                    : "text-gray-700 hover:text-[#B30738]"
-                } transition`}
+                className={`py-2 ${isActive("/Mentorship")
+                  ? "text-[#B30738] border-b-2 border-[#B30738]"
+                  : "text-gray-700 hover:text-[#B30738]"
+                  } transition`}
               >
                 Mentorship
               </Link>
               <Link
                 href="/ComingSoon"
-                className={`py-2 ${
-                  isActive("/StudyPartner")
-                    ? "text-[#B30738] border-b-2 border-[#B30738]"
-                    : "text-gray-700 hover:text-[#B30738]"
-                } transition`}
+                className={`py-2 ${isActive("/StudyPartner")
+                  ? "text-[#B30738] border-b-2 border-[#B30738]"
+                  : "text-gray-700 hover:text-[#B30738]"
+                  } transition`}
               >
                 Study Partner 💗
               </Link>
 
               <Link
                 href="/ComingSoon"
-                className={`py-2 ${
-                  isActive("/Notes")
-                    ? "text-[#B30738] border-b-2 border-[#B30738]"
-                    : "text-gray-700 hover:text-[#B30738]"
-                } transition`}
+                className={`py-2 ${isActive("/Notes")
+                  ? "text-[#B30738] border-b-2 border-[#B30738]"
+                  : "text-gray-700 hover:text-[#B30738]"
+                  } transition`}
               >
                 Notes
               </Link>
               <Link
                 href="/ComingSoon"
-                className={`py-2 ${
-                  isActive("/Community")
-                    ? "text-[#B30738] border-b-2 border-[#B30738]"
-                    : "text-gray-700 hover:text-[#B30738]"
-                } transition`}
+                className={`py-2 ${isActive("/Community")
+                  ? "text-[#B30738] border-b-2 border-[#B30738]"
+                  : "text-gray-700 hover:text-[#B30738]"
+                  } transition`}
               >
                 Community
               </Link>
@@ -204,13 +199,9 @@ export default function Header() {
               {/* Profile Dropdown */}
               <DropdownMenu>
                 <DropdownMenuTrigger asChild>
-                  <button className="relative h-8 w-8 rounded-full overflow-hidden bg-gray-200 hover:bg-gray-300 transition-colors focus:outline-none focus:ring-0 focus:ring-offset-0">
-                    {user ? (
-                      //  <img     src={'http://cloudinary link '} alt="Profile" className="h-full w-full object-cover" />
-                      <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
-                    ) : (
-                      <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
-                    )}
+                  <button className="relative h-10 w-10 rounded-full bg-gradient-to-tr from-[#B30738] to-[#ff6f98] flex items-center justify-center shadow-md hover:scale-105 transition-transform focus:outline-none">
+                    <span className="absolute inset-0 rounded-full border-2 border-white opacity-60"></span>
+                    <User className="h-5 w-5 text-white z-10" />
                   </button>
                 </DropdownMenuTrigger>
                 <DropdownMenuContent align="end" className="w-48">
@@ -219,6 +210,16 @@ export default function Header() {
                   <DropdownMenuItem className="cursor-pointer">
                     <Link className="w-full" href={"/ComingSoon"}>
                       Profile
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link className="w-full" href="/Request">
+                      Feature Request
+                    </Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem>
+                    <Link className="w-full" href="/Request">
+                      Bug Report
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem
@@ -299,44 +300,40 @@ export default function Header() {
               <>
                 <Link
                   href="/ComingSoon"
-                  className={`py-2 px-4 ${
-                    isActive("/Mentorship")
-                      ? "text-[#B30738] font-bold"
-                      : "text-gray-700 hover:text-[#B30738]"
-                  }`}
+                  className={`py-2 px-4 ${isActive("/Mentorship")
+                    ? "text-[#B30738] font-bold"
+                    : "text-gray-700 hover:text-[#B30738]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Mentorship
                 </Link>
                 <Link
                   href="/ComingSoon"
-                  className={`py-2 px-4 ${
-                    isActive("/StudyPartner")
-                      ? "text-[#B30738] font-bold"
-                      : "text-gray-700 hover:text-[#B30738]"
-                  }`}
+                  className={`py-2 px-4 ${isActive("/StudyPartner")
+                    ? "text-[#B30738] font-bold"
+                    : "text-gray-700 hover:text-[#B30738]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Study Partner 💗
                 </Link>
                 <Link
                   href="/ComingSoon"
-                  className={`py-2 px-4 ${
-                    isActive("/Notes")
-                      ? "text-[#B30738] font-bold"
-                      : "text-gray-700 hover:text-[#B30738]"
-                  }`}
+                  className={`py-2 px-4 ${isActive("/Notes")
+                    ? "text-[#B30738] font-bold"
+                    : "text-gray-700 hover:text-[#B30738]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Notes
                 </Link>
                 <Link
                   href="/ComingSoon"
-                  className={`py-2 px-4 ${
-                    isActive("/Commnity")
-                      ? "text-[#B30738] font-bold"
-                      : "text-gray-700 hover:text-[#B30738]"
-                  }`}
+                  className={`py-2 px-4 ${isActive("/Commnity")
+                    ? "text-[#B30738] font-bold"
+                    : "text-gray-700 hover:text-[#B30738]"
+                    }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Community
