@@ -66,7 +66,13 @@ export default function AppLayout({ children }: { children: ReactNode }) {
     );
   }
 
-  if (path === '/EarlyAccess' || path === "/OurTeam" || path === "Request") {
+  if (
+    path === "/OurTeam" ||
+    path === "Request" ||
+    path === "/mentorship" ||
+    path === "/study-partner" ||
+    path === "/notes-community"
+  ) {
     return (
       <>
         <Header />

@@ -15,12 +15,12 @@ export function FooterSection() {
     e.preventDefault();
     setLoading(true);
 
-        const formData = {
-            access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
-            subject: 'New Newsletter Subscriber',
-            from_name: 'BizzSocial Newsletter',
-            email,
-        };
+    const formData = {
+      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY!,
+      subject: "New Newsletter Subscriber",
+      from_name: "BizzSocial Newsletter",
+      email,
+    };
 
     try {
       const res = await fetch("https://api.web3forms.com/submit", {
@@ -46,41 +46,68 @@ export function FooterSection() {
     }
   };
 
-    return (
-        <footer className="bg-white bg-opacity-10 backdrop-blur-md py-14 md:px-12 mt-16">
-            <div className="mx-auto px-4 sm:px-6 lg:px-8">
-                <div className="flex justify-between flex-wrap items-start gap-20">
-                    {/* Brand & Description */}
-                    <div className="max-w-lg">
-                        <h3 className="text-2xl font-bold text-[#B30738]">BizzSocial</h3>
-                        <p className="mt-4 text-sm text-gray-600">
-                            Meet students beyond your campus walls, spark unexpected conversations, and change your perspective — one chat at a time.
-                        </p>
-                        <div className="flex space-x-4 mt-4 text-[#B30738]">
-                            <div className="border border-gray-400 rounded-lg p-3">
-                                <BsTwitterX className="w-4 h-4" />
-                            </div>
-                            <div className="border border-gray-400 rounded-lg p-3">
-                                <Instagram className="w-4 h-4" />
-                            </div>
-                            <div className="border border-gray-400 rounded-lg p-3">
-                                <Facebook className="w-4 h-4" />
-                            </div>
-                        </div>
-                    </div>
+  return (
+    <footer className="bg-white bg-opacity-10 backdrop-blur-md py-14 md:px-12 mt-16">
+      <div className="mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="flex justify-between flex-wrap items-start gap-20">
+          {/* Brand & Description */}
+          <div className="max-w-lg">
+            <h3 className="text-2xl font-bold text-[#B30738]">BizzSocial</h3>
+            <p className="mt-4 text-sm text-gray-600">
+              Meet students beyond your campus walls, spark unexpected
+              conversations, and change your perspective — one chat at a time.
+            </p>
+            <div className="flex space-x-4 mt-4 text-[#B30738]">
+              <div className="border border-gray-400 rounded-lg p-3">
+                <BsTwitterX className="w-4 h-4" />
+              </div>
+              <div className="border border-gray-400 rounded-lg p-3">
+                <Instagram className="w-4 h-4" />
+              </div>
+              <div className="border border-gray-400 rounded-lg p-3">
+                <Facebook className="w-4 h-4" />
+              </div>
+            </div>
+          </div>
 
-                    {/* Quick Links */}
-                    <div>
-                        <h4 className="text-xl font-semibold text-gray-800 mb-4">Features</h4>
-                        <ul className="space-y-2 text-gray-600">
-                            <li><Link href="/ComingSoon" className="hover:underline">Mentorship</Link></li>
-                            <li><Link href="/ComingSoon" className="hover:underline">Dateing</Link></li>
-                            <li><Link href="/ComingSoon" className="hover:underline">Notes</Link></li>
-                            <li><Link href="/ComingSoon" className="hover:underline">Community</Link></li>
-                            <li><Link href="/ComingSoon" className="hover:underline">Support</Link></li>
-                            <li><Link href="/ComingSoon" className="hover:underline">Contact Us</Link></li>
-                        </ul>
-                    </div>
+          {/* Quick Links */}
+          <div>
+            <h4 className="text-xl font-semibold text-gray-800 mb-4">
+              Features
+            </h4>
+            <ul className="space-y-2 text-gray-600">
+              <li>
+                <Link href="/ComingSoon" className="hover:underline">
+                  Mentorship
+                </Link>
+              </li>
+              <li>
+                <Link href="/ComingSoon" className="hover:underline">
+                  Dating
+                </Link>
+              </li>
+              <li>
+                <Link href="/ComingSoon" className="hover:underline">
+                  Notes
+                </Link>
+              </li>
+              <li>
+                <Link href="/ComingSoon" className="hover:underline">
+                  Community
+                </Link>
+              </li>
+              <li>
+                <Link href="/ComingSoon" className="hover:underline">
+                  Support
+                </Link>
+              </li>
+              <li>
+                <Link href="/ComingSoon" className="hover:underline">
+                  Contact Us
+                </Link>
+              </li>
+            </ul>
+          </div>
 
           {/* Newsletter */}
           <div>
@@ -115,16 +142,22 @@ export function FooterSection() {
           </div>
         </div>
 
-                {/* Footer Bottom */}
-                <div className="border-t border-gray-300 mt-12 pt-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">
-                    <p>© 2025 BizzSocial. All rights reserved.</p>
-                    <div className="space-x-4 mt-4 md:mt-0">
-                        <Link href="#" className="hover:underline">Privacy Policy</Link>
-                        <Link href="#" className="hover:underline">Terms of Service</Link>
-                        <Link href="#" className="hover:underline">Cookie Policy</Link>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    );
+        {/* Footer Bottom */}
+        <div className="border-t border-gray-300 mt-12 pt-6 flex flex-col md:flex-row justify-between text-gray-600 text-sm">
+          <p>© 2025 BizzSocial. All rights reserved.</p>
+          <div className="space-x-4 mt-4 md:mt-0">
+            <Link href="#" className="hover:underline">
+              Privacy Policy
+            </Link>
+            <Link href="#" className="hover:underline">
+              Terms of Service
+            </Link>
+            <Link href="#" className="hover:underline">
+              Cookie Policy
+            </Link>
+          </div>
+        </div>
+      </div>
+    </footer>
+  );
 }

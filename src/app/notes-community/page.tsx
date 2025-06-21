@@ -1,5 +1,6 @@
 import ComingSoon from "@/components/ComingSoon/ComingSoon";
-export default function ComingSoonPage() {
+
+export default function NotesCommunityPage() {
   return (
     <div className="">
       <ComingSoon />

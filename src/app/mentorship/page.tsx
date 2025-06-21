@@ -1,5 +1,6 @@
 import ComingSoon from "@/components/ComingSoon/ComingSoon";
-export default function ComingSoonPage() {
+
+export default function MentorshipPage() {
   return (
     <div className="">
       <ComingSoon />
