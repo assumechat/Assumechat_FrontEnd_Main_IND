@@ -5,7 +5,7 @@ import { CheckCircle } from "lucide-react";
 export default function ThankYouPage() {
   const router = useRouter();
   const islive = process.env.NEXT_PUBLIC_ISLIVE === "true";
-  console.log(islive);
+
   return (
     <div className="relative min-h-screen pt-16 md:pt-10 overflow-hidden bg-white">
       {/* Background layer with absolute positioned SVGs */}
