@@ -145,9 +145,9 @@ export default function Header() {
           {isAuthenticated && (
             <>
               <Link
-                href="/mentorship"
+                href="/ComingSoon"
                 className={`py-2 ${
-                  isActive("/mentorship")
+                  isActive("/Mentorship")
                     ? "text-[#B30738] border-b-2 border-[#B30738]"
                     : "text-gray-700 hover:text-[#B30738]"
                 } transition`}
@@ -155,9 +155,9 @@ export default function Header() {
                 Mentorship
               </Link>
               <Link
-                href="/study-partner"
+                href="/ComingSoon"
                 className={`py-2 ${
-                  isActive("/study-partner")
+                  isActive("/StudyPartner")
                     ? "text-[#B30738] border-b-2 border-[#B30738]"
                     : "text-gray-700 hover:text-[#B30738]"
                 } transition`}
@@ -166,14 +166,24 @@ export default function Header() {
               </Link>
 
               <Link
-                href="/notes-community"
+                href="/ComingSoon"
                 className={`py-2 ${
-                  isActive("/notes-community")
+                  isActive("/Notes")
                     ? "text-[#B30738] border-b-2 border-[#B30738]"
                     : "text-gray-700 hover:text-[#B30738]"
                 } transition`}
               >
-                Notes Community
+                Notes
+              </Link>
+              <Link
+                href="/ComingSoon"
+                className={`py-2 ${
+                  isActive("/Community")
+                    ? "text-[#B30738] border-b-2 border-[#B30738]"
+                    : "text-gray-700 hover:text-[#B30738]"
+                } transition`}
+              >
+                Community
               </Link>
             </>
           )}
@@ -207,13 +217,17 @@ export default function Header() {
                   <DropdownMenuLabel>{user?.name}</DropdownMenuLabel>
                   <DropdownMenuSeparator />
                   <DropdownMenuItem className="cursor-pointer">
-                    <Link href={"/profile"}>Profile</Link>
+                    <Link className="w-full" href={"/ComingSoon"}>
+                      Profile
+                    </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem
                     onClick={handleLogout}
                     className="cursor-pointer text-red-600 hover:text-red-700 hover:bg-red-50"
                   >
-                    <Link href={"/"}>Log Out</Link>
+                    <Link className="w-full" href={"/"}>
+                      Log Out
+                    </Link>
                   </DropdownMenuItem>
                 </DropdownMenuContent>
               </DropdownMenu>
@@ -284,9 +298,9 @@ export default function Header() {
             {isAuthenticated && (
               <>
                 <Link
-                  href="/mentorship"
+                  href="/ComingSoon"
                   className={`py-2 px-4 ${
-                    isActive("/mentorship")
+                    isActive("/Mentorship")
                       ? "text-[#B30738] font-bold"
                       : "text-gray-700 hover:text-[#B30738]"
                   }`}
@@ -295,9 +309,9 @@ export default function Header() {
                   Mentorship
                 </Link>
                 <Link
-                  href="/study-partner"
+                  href="/ComingSoon"
                   className={`py-2 px-4 ${
-                    isActive("/study-partner")
+                    isActive("/StudyPartner")
                       ? "text-[#B30738] font-bold"
                       : "text-gray-700 hover:text-[#B30738]"
                   }`}
@@ -306,15 +320,26 @@ export default function Header() {
                   Study Partner 💗
                 </Link>
                 <Link
-                  href="/notes-community"
+                  href="/ComingSoon"
                   className={`py-2 px-4 ${
-                    isActive("/notes-community")
+                    isActive("/Notes")
                       ? "text-[#B30738] font-bold"
                       : "text-gray-700 hover:text-[#B30738]"
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Notes Community
+                  Notes
+                </Link>
+                <Link
+                  href="/ComingSoon"
+                  className={`py-2 px-4 ${
+                    isActive("/Commnity")
+                      ? "text-[#B30738] font-bold"
+                      : "text-gray-700 hover:text-[#B30738]"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Community
                 </Link>
 
                 {/* Mobile Profile Section */}
@@ -333,7 +358,7 @@ export default function Header() {
                     </span>
                   </div>
                   <Link
-                    href="/profile"
+                    href="/ComingSoon"
                     className="block py-2 px-4 text-gray-700 hover:text-[#B30738]"
                     onClick={() => setIsMenuOpen(false)}
                   >
