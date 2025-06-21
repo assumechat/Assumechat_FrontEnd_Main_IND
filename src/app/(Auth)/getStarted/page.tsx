@@ -220,7 +220,7 @@ export default function InterestSelection() {
                   type="button"
                   className="w-60 py-2 sm:py-3 px-4 sm:px-6 rounded-lg font-medium text-sm sm:text-base text-[#B30738] hover:bg-gray-100 transition-colors border border-transparent hover:border-gray-200"
                   onClick={() => {
-                    router.push("/waitingRoom");
+                    toast.error("This feature is not available yet");
                   }}
                 >
                   Skip for now
