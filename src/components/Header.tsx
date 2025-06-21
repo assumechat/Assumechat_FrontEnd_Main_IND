@@ -162,7 +162,7 @@ export default function Header() {
                     : "text-gray-700 hover:text-[#B30738]"
                 } transition`}
               >
-                Study Partner
+                Study Partner 💗
               </Link>
 
               <Link
@@ -303,7 +303,7 @@ export default function Header() {
                   }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Study Partner
+                  Study Partner 💗
                 </Link>
                 <Link
                   href="/notes-community"

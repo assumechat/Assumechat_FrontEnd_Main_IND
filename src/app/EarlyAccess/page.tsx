@@ -4,7 +4,6 @@ import { useRouter } from "next/navigation";
 import axios from "axios";
 import { toast } from "sonner";
 import EarlyAccessForm from "@/components/EarlyAccess/form";
-import { setUser } from "@/store/slices/userSlice";
 import MadeInIndiaPage from "@/components/Home/MADEInIndia";
 import { FooterSection } from "@/components/Footer";
 
@@ -493,7 +492,7 @@ export default function ClaimEarlyAccessPage() {
             }}
             className="bg-[#B30738] hover:bg-red-800 text-white font-bold py-3 px-20 rounded-lg text-lg transition-colors duration-300 mb-4 shadow-lg"
           >
-            Claim Early Access
+            Get Early Access
           </button>
 
           <p className="text-gray-600 text-md">
