@@ -398,7 +398,8 @@ export default function HeroSection() {
         {/* Main Content */}
         <div className="relative pt-24 z-10 text-center px-4">
           <h1 className=" text-4xl md:text-6xl font-bold mb-6 ">
-            Your <span className='text-[#B30738]'>IIT Campas</span> Just <br /> Got a Lot Bigger.
+            Your <span className="text-[#B30738]">IIT Campus</span> Just <br />{" "}
+            Got a Lot Bigger.
           </h1>
 
           <p className="text-gray-800 text-lg max-w-sm mx-auto mb-8">
@@ -418,7 +419,10 @@ export default function HeroSection() {
           </button>
 
           <p className="text-gray-600 text-md">
-            Real <span className="text-[#B30738]">IITians</span>, real connections  <br /> — whether you're looking to <span className="text-[#B30738]">collab, chat, or chill</span><br /> it starts with one anonymous message.
+            Real <span className="text-[#B30738]">IITians</span>, real
+            connections <br /> — whether you're looking to{" "}
+            <span className="text-[#B30738]">collab, chat, or chill</span>
+            <br /> it starts with one anonymous message.
           </p>
         </div>
       </div>

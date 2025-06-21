@@ -1,67 +1,69 @@
 "use client";
-import { useRef, useEffect, useState } from "react";
+import { useRef, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "@/store";
 import axios from "axios";
+import { useAppSelector } from "@/store/hooks";
 import { toast } from "sonner";
-import EarlyAccessForm from "@/components/EarlyAccess/form";
-import MadeInIndiaPage from "@/components/Home/MADEInIndia";
-import { FooterSection } from "@/components/Footer";
+import { setUser } from "@/store/slices/userSlice";
 
 export default function ClaimEarlyAccessPage() {
   const reviewsRef = useRef<HTMLDivElement[]>([]);
   const iconsRef = useRef<HTMLDivElement[]>([]);
   const router = useRouter();
-  const [email, setEmail] = useState<string>("");
-  const [name, setName] = useState<string>("");
-  const [showPopUp, setShowPopup] = useState<boolean>(false);
-
-  async function handleSubmit(): Promise<void> {
+  const user = useAppSelector((state) => state.user.user);
+  const dispatch = useDispatch();
+  const isAuthenticated = useSelector(
+    (state: RootState) => state.user.isAuthenticated
+  );
+  async function handleSubmit() {
     try {
+      if (!isAuthenticated) {
+        router.push("/signup");
+      }
+      if (user?.isPremium) {
+        router.push("/waitingRoom");
+      }
       const earlyAccessUser = await axios.post(
         `${process.env.NEXT_PUBLIC_BACKEND_URL}early-access-form/getUserByEmail`,
         {
-          email: email,
+          email: user?.email,
+        }
+      );
+      if (!earlyAccessUser.data.data) {
+        return toast.error("email not found in early access forms");
+      }
+      if (earlyAccessUser.data.data.claimed) {
+        return toast.error("Early access and premium already claimed");
+      }
+      const updateUser = await axios.put(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}user/updatePremium`,
+        {
+          email: user?.email,
         },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
-      if (earlyAccessUser.data.data) {
-        toast.error("You have already submitted the form");
-        return;
-      }
-      const number = await axios.get(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}early-access-form/number`
-      );
+      dispatch(setUser(updateUser.data.data.user));
 
-      if (number.data.data >= 100) {
-        toast.error("Early access Form submission limit has been exceeded");
-        return;
-      }
-
-      await axios.post(
-        `${process.env.NEXT_PUBLIC_BACKEND_URL}early-access-form/`,
+      await axios.put(
+        `${process.env.NEXT_PUBLIC_BACKEND_URL}early-access-form/claimed`,
         {
-          email: email,
-          name: name,
+          id: earlyAccessUser.data.data._id,
         },
         {
           headers: { "Content-Type": "application/json" },
         }
       );
-      toast.success("Form submitted");
-      router.push("/thanku");
+      toast.success("Early access claimed");
+      router.push("/waitingRoom");
     } catch (error: any) {
-      toast.error(
-        error.response?.data?.message || "An unexpected error occurred"
-      );
+      toast.error(error.message);
+      console.error("Early access error:", error);
     }
   }
-
-  const handleClosePopup = () => {
-    setShowPopup(false);
-  };
-
   useEffect(() => {
     if (typeof window !== "undefined") {
       const animateElements = () => {
@@ -487,12 +489,10 @@ export default function ClaimEarlyAccessPage() {
           </p>
 
           <button
-            onClick={() => {
-              setShowPopup(true);
-            }}
+            onClick={handleSubmit}
             className="bg-[#B30738] hover:bg-red-800 text-white font-bold py-3 px-20 rounded-lg text-lg transition-colors duration-300 mb-4 shadow-lg"
           >
-            Get Early Access
+            Claim Early Access
           </button>
 
           <p className="text-gray-600 text-md">
@@ -502,19 +502,6 @@ export default function ClaimEarlyAccessPage() {
           </p>
         </div>
       </div>
-      <MadeInIndiaPage />
-      <FooterSection />
-
-      {/* Early Access Form Dialog */}
-      <EarlyAccessForm
-        showPopUp={showPopUp}
-        email={email}
-        setEmail={setEmail}
-        name={name}
-        setName={setName}
-        onClose={handleClosePopup}
-        onSubmit={handleSubmit}
-      />
     </>
   );
 }

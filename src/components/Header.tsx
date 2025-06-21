@@ -1,13 +1,22 @@
-'use client';
-import { UserState } from '@/types/userstate';
-import { usePathname } from 'next/navigation';
-import Link from 'next/link';
-import { useState } from 'react';
-import { FiMenu, FiX } from 'react-icons/fi';
-import { useSelector, useDispatch } from 'react-redux';
-import { logoutUser } from '@/lib/logout';
-import { logout } from '@/store/slices/userSlice';
-import { useRouter } from 'next/navigation';
+"use client";
+import { UserState } from "@/types/userstate";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
+import { useState } from "react";
+import { FiMenu, FiX, FiUser } from "react-icons/fi";
+import { useSelector, useDispatch } from "react-redux";
+import { logoutUser } from "@/lib/logout";
+import { logout } from "@/store/slices/userSlice";
+import { useRouter } from "next/navigation";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
+import { User } from "lucide-react";
 
 export default function Header() {
   const pathname = usePathname();
@@ -17,17 +26,30 @@ export default function Header() {
   const [showAboutUsMobile, setShowAboutUsMobile] = useState(false);
 
   const user = useSelector((state: { user: UserState }) => state.user.user);
-  const isAuthenticated = useSelector((state: { user: UserState }) => state.user.isAuthenticated);
+  const isAuthenticated = useSelector(
+    (state: { user: UserState }) => state.user.isAuthenticated
+  );
 
   const router = useRouter();
   const dispatch = useDispatch();
 
   const isActive = (href: string) => pathname === href;
 
+  // Check if user is currently in waiting room
+  const isInWaitingRoom = pathname === "/waitingRoom";
+
   const handleLogout = async () => {
     await logoutUser();
     dispatch(logout());
     router.push("/");
+  };
+
+  const handleExplore = () => {
+    if (isAuthenticated) {
+      router.push("/waitingRoom");
+    } else {
+      router.push("/signin");
+    }
   };
 
   const featureItems = [
@@ -59,7 +81,7 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full fixed px-4 md:px-20 py-4 flex items-center justify-between border-b border-gray-200 bg-opacity-30 backdrop-blur-[2px] z-50">
+      <header className="w-full fixed px-4 lg:px-20 py-4 flex items-center justify-between border-b border-gray-200 bg-white bg-opacity-30 backdrop-blur-[2px] z-50">
         <div className="flex flex-col">
           <div className="text-2xl font-bold text-[#B30738]">
             <Link href="/">BizzSocial</Link>
@@ -69,7 +91,12 @@ export default function Header() {
             <img
               src="https://upload.wikimedia.org/wikipedia/en/4/41/Flag_of_India.svg"
               alt="India Flag"
-              style={{ width: '18px', height: '12px', display: 'inline', verticalAlign: 'middle' }}
+              style={{
+                width: "18px",
+                height: "12px",
+                display: "inline",
+                verticalAlign: "middle",
+              }}
             />
             For INDIA
           </span>
@@ -92,10 +119,11 @@ export default function Header() {
               ].map(({ label, items }) => (
                 <div key={label} className="relative group">
                   <span
-                    className={`py-2 cursor-pointer ${pathname === "/ComingSoon"
-                      ? "text-[#B30738] border-b-2 border-[#B30738]"
-                      : "text-gray-700 hover:text-[#B30738]"
-                      } transition`}
+                    className={`py-2 cursor-pointer ${
+                      pathname === "/ComingSoon"
+                        ? "text-[#B30738] border-b-2 border-[#B30738]"
+                        : "text-gray-700 hover:text-[#B30738]"
+                    } transition`}
                   >
                     {label}
                   </span>
@@ -117,60 +145,86 @@ export default function Header() {
           {isAuthenticated && (
             <>
               <Link
-                href="/waitingRoom"
-                className={`py-2 ${isActive("/waitingRoom")
-                  ? "text-[#B30738] border-b-2 border-[#B30738]"
-                  : "text-gray-700 hover:text-[#B30738]"
-                  } transition`}
+                href="/mentorship"
+                className={`py-2 ${
+                  isActive("/mentorship")
+                    ? "text-[#B30738] border-b-2 border-[#B30738]"
+                    : "text-gray-700 hover:text-[#B30738]"
+                } transition`}
               >
-                Waiting Room
+                Mentorship
               </Link>
               <Link
-                href="/ComingSoon"
-                className={`py-2 ${isActive("/ComingSoon")
-                  ? "text-[#B30738] border-b-2 border-[#B30738]"
-                  : "text-gray-700 hover:text-[#B30738]"
-                  } transition`}
+                href="/study-partner"
+                className={`py-2 ${
+                  isActive("/study-partner")
+                    ? "text-[#B30738] border-b-2 border-[#B30738]"
+                    : "text-gray-700 hover:text-[#B30738]"
+                } transition`}
               >
-                Profile
+                Study Partner 💗
+              </Link>
+
+              <Link
+                href="/notes-community"
+                className={`py-2 ${
+                  isActive("/notes-community")
+                    ? "text-[#B30738] border-b-2 border-[#B30738]"
+                    : "text-gray-700 hover:text-[#B30738]"
+                } transition`}
+              >
+                Notes Community
               </Link>
             </>
           )}
         </nav>
 
-        <div className="hidden md:flex items-center space-x-3">
+        <div className="hidden md:flex items-center space-x-2">
           {isAuthenticated ? (
-            <Link
-              href="/signin"
-              onClick={handleLogout}
-              className={`px-6 md:px-12 py-2 border border-[#B30738] rounded-lg ${isActive("/signin")
-                ? "bg-gray-300 text-black"
-                : "bg-white text-[#B30738] hover:bg-gray-100"
-                } transition`}
-            >
-              Log Out
-            </Link>
+            <div className="flex items-center gap-2 lg:gap-8">
+              {!isInWaitingRoom && (
+                <button
+                  onClick={handleExplore}
+                  className="px-6 md:px-12 py-2 rounded-lg bg-[#B30738] text-white hover:bg-[#95052c] transition"
+                >
+                  Explore
+                </button>
+              )}
+
+              {/* Profile Dropdown */}
+              <DropdownMenu>
+                <DropdownMenuTrigger asChild>
+                  <button className="relative h-8 w-8 rounded-full overflow-hidden bg-gray-200 hover:bg-gray-300 transition-colors focus:outline-none focus:ring-0 focus:ring-offset-0">
+                    {user ? (
+                      //  <img     src={'http://cloudinary link '} alt="Profile" className="h-full w-full object-cover" />
+                      <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
+                    ) : (
+                      <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
+                    )}
+                  </button>
+                </DropdownMenuTrigger>
+                <DropdownMenuContent align="end" className="w-48">
+                  <DropdownMenuLabel>{user?.name}</DropdownMenuLabel>
+                  <DropdownMenuSeparator />
+                  <DropdownMenuItem className="cursor-pointer">
+                    <Link href={"/profile"}>Profile</Link>
+                  </DropdownMenuItem>
+                  <DropdownMenuItem
+                    onClick={handleLogout}
+                    className="cursor-pointer text-red-600 hover:text-red-700 hover:bg-red-50"
+                  >
+                    <Link href={"/"}>Log Out</Link>
+                  </DropdownMenuItem>
+                </DropdownMenuContent>
+              </DropdownMenu>
+            </div>
           ) : (
-            <>
-              <Link
-                href="/signin"
-                className={`px-6 md:px-12 py-2 border border-[#B30738] rounded-lg ${isActive("/signin")
-                  ? "bg-gray-300 text-black"
-                  : "bg-white text-[#B30738] hover:bg-gray-100"
-                  } transition`}
-              >
-                Sign In
-              </Link>
-              <Link
-                href="/signup"
-                className={`px-6 md:px-12 py-2 rounded-lg ${isActive("/signup")
-                  ? "bg-red-800 text-white"
-                  : "bg-[#B30738] text-white hover:bg-[#95052c]"
-                  } transition`}
-              >
-                Sign Up
-              </Link>
-            </>
+            <button
+              onClick={handleExplore}
+              className="px-6 md:px-12 py-2 rounded-lg bg-[#B30738] text-white hover:bg-[#95052c] transition"
+            >
+              Explore
+            </button>
           )}
         </div>
       </header>
@@ -230,57 +284,99 @@ export default function Header() {
             {isAuthenticated && (
               <>
                 <Link
-                  href="/waitingRoom"
-                  className={`py-2 px-4 ${isActive("/waitingRoom")
-                    ? "text-[#B30738] font-bold"
-                    : "text-gray-700 hover:text-[#B30738]"
-                    }`}
+                  href="/mentorship"
+                  className={`py-2 px-4 ${
+                    isActive("/mentorship")
+                      ? "text-[#B30738] font-bold"
+                      : "text-gray-700 hover:text-[#B30738]"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Waiting Room
+                  Mentorship
                 </Link>
                 <Link
-                  href="/ComingSoon"
-                  className={`py-2 px-4 ${isActive("/ComingSoon")
-                    ? "text-[#B30738] font-bold"
-                    : "text-gray-700 hover:text-[#B30738]"
-                    }`}
+                  href="/study-partner"
+                  className={`py-2 px-4 ${
+                    isActive("/study-partner")
+                      ? "text-[#B30738] font-bold"
+                      : "text-gray-700 hover:text-[#B30738]"
+                  }`}
                   onClick={() => setIsMenuOpen(false)}
                 >
-                  Profile
+                  Study Partner 💗
                 </Link>
+                <Link
+                  href="/notes-community"
+                  className={`py-2 px-4 ${
+                    isActive("/notes-community")
+                      ? "text-[#B30738] font-bold"
+                      : "text-gray-700 hover:text-[#B30738]"
+                  }`}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Notes Community
+                </Link>
+
+                {/* Mobile Profile Section */}
+                <div className="border-t border-gray-200 pt-4 mt-4">
+                  <div className="flex items-center space-x-3 px-4 py-2">
+                    <div className="h-8 w-8 rounded-full overflow-hidden bg-gray-200">
+                      {user ? (
+                        //<img src={user.profilePicture} alt="Profile" className="h-full w-full object-cover" />
+                        <User className="h-4 w-4 text-gray-600 m-auto mt-2" />
+                      ) : (
+                        <FiUser className="h-4 w-4 text-gray-600 m-auto mt-2" />
+                      )}
+                    </div>
+                    <span className="text-sm text-gray-700">
+                      {user?.name || "User"}
+                    </span>
+                  </div>
+                  <Link
+                    href="/profile"
+                    className="block py-2 px-4 text-gray-700 hover:text-[#B30738]"
+                    onClick={() => setIsMenuOpen(false)}
+                  >
+                    Profile
+                  </Link>
+                </div>
               </>
             )}
 
             <div className="flex flex-col space-y-3 pt-2">
               {isAuthenticated ? (
-                <Link
-                  href="/"
-                  className={`px-6 py-2 border border-[#B30738] rounded-lg text-center ${isActive('/signin') ? 'bg-gray-300 text-black' : 'bg-white text-[#B30738] hover:bg-gray-100'}`}
+                <div className="flex flex-col space-y-3">
+                  {!isInWaitingRoom && (
+                    <button
+                      onClick={() => {
+                        handleExplore();
+                        setIsMenuOpen(false);
+                      }}
+                      className="px-6 py-2 rounded-lg text-center bg-[#B30738] text-white hover:bg-[#95052c]"
+                    >
+                      Explore
+                    </button>
+                  )}
+                  <button
+                    onClick={() => {
+                      handleLogout();
+                      setIsMenuOpen(false);
+                    }}
+                    className="px-6 py-2 border border-red-500 rounded-lg text-center bg-white text-red-600 hover:bg-red-50"
+                  >
+                    Log Out
+                  </button>
+                </div>
+              ) : (
+                <button
                   onClick={() => {
-                    handleLogout();
+                    handleExplore();
                     setIsMenuOpen(false);
                   }}
+                  className="px-6 py-2 rounded-lg text-center bg-[#B30738] text-white hover:bg-[#95052c]"
                 >
-                  Log Out
-                </Link>
-              ) : (
-                <>
-                  <Link
-                    href="/signin"
-                    className={`px-6 py-2 border border-[#B30738] rounded-lg text-center ${isActive('/signin') ? 'bg-gray-300 text-black' : 'bg-white text-[#B30738] hover:bg-gray-100'}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign In
-                  </Link>
-                  <Link
-                    href="/signup"
-                    className={`px-6 py-2 rounded-lg text-center ${isActive('/signup') ? 'bg-red-800 text-white' : 'bg-[#B30738] text-white hover:bg-[#95052c]'}`}
-                    onClick={() => setIsMenuOpen(false)}
-                  >
-                    Sign Up
-                  </Link>
-                </>
+                  Explore
+                </button>
               )}
             </div>
           </nav>
