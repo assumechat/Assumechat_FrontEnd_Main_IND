@@ -366,7 +366,7 @@ const Sidebar = ({ Children }: { Children: ReactNode }) => {
         { id: 'reels', icon: Film, label: 'Reels' },
         { id: 'minigames', icon: Gamepad2, label: 'Mini Games' },
         { id: 'unispace', icon: University, label: 'Uni Space' },
-        { id: 'assumer', icon: MessageSquare, label: 'Assumer' }
+        { id: 'assumer', icon: MessageSquare, label: 'Random Chat' }
     ];
 
     const getSubTabs = () => {

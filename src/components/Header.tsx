@@ -110,78 +110,44 @@ export default function Header() {
         </button>
 
         <nav className="hidden md:flex font-medium space-x-14 text-md">
-          {!isAuthenticated && (
-            <>
-              {[
-                { label: "How it works?", items: howItWorksItems },
-                { label: "Features", items: featureItems },
-                { label: "About Us", items: aboutUsItems },
-              ].map(({ label, items }) => (
-                <div key={label} className="relative group">
-                  <span
-                    className={`py-2 cursor-pointer ${pathname === "/ComingSoon"
-                      ? "text-[#B30738] border-b-2 border-[#B30738]"
-                      : "text-gray-700 hover:text-[#B30738]"
-                      } transition`}
-                  >
-                    {label}
-                  </span>
-                  <div className="absolute top-full left-0 w-48 mt-2 bg-white shadow-md border border-gray-100 rounded-lg hidden group-hover:block z-50">
-                    {items.map(({ label, href }) => (
-                      <Link
-                        key={label}
-                        href={href}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-[#B30738]"
-                      >
-                        {label}
-                      </Link>
-                    ))}
-                  </div>
-                </div>
-              ))}
-            </>
-          )}
-          {isAuthenticated && (
-            <>
-              <Link
-                href="/ComingSoon"
-                className={`py-2 ${isActive("/Mentorship")
-                  ? "text-[#B30738] border-b-2 border-[#B30738]"
-                  : "text-gray-700 hover:text-[#B30738]"
-                  } transition`}
-              >
-                Mentorship
-              </Link>
-              <Link
-                href="/ComingSoon"
-                className={`py-2 ${isActive("/StudyPartner")
-                  ? "text-[#B30738] border-b-2 border-[#B30738]"
-                  : "text-gray-700 hover:text-[#B30738]"
-                  } transition`}
-              >
-                Study Partner 💗
-              </Link>
+          <Link
+            href="/ComingSoon"
+            className={`py-2 ${isActive("/Mentorship")
+              ? "text-[#B30738] border-b-2 border-[#B30738]"
+              : "text-gray-700 hover:text-[#B30738]"
+              } transition`}
+          >
+            Mentorship
+          </Link>
+          <Link
+            href="/ComingSoon"
+            className={`py-2 ${isActive("/StudyPartner")
+              ? "text-[#B30738] border-b-2 border-[#B30738]"
+              : "text-gray-700 hover:text-[#B30738]"
+              } transition`}
+          >
+            Study Partner 💗
+          </Link>
 
-              <Link
-                href="/ComingSoon"
-                className={`py-2 ${isActive("/Notes")
-                  ? "text-[#B30738] border-b-2 border-[#B30738]"
-                  : "text-gray-700 hover:text-[#B30738]"
-                  } transition`}
-              >
-                Notes
-              </Link>
-              <Link
-                href="/ComingSoon"
-                className={`py-2 ${isActive("/Community")
-                  ? "text-[#B30738] border-b-2 border-[#B30738]"
-                  : "text-gray-700 hover:text-[#B30738]"
-                  } transition`}
-              >
-                Community
-              </Link>
-            </>
-          )}
+          <Link
+            href="/ComingSoon"
+            className={`py-2 ${isActive("/Notes")
+              ? "text-[#B30738] border-b-2 border-[#B30738]"
+              : "text-gray-700 hover:text-[#B30738]"
+              } transition`}
+          >
+            Notes
+          </Link>
+          <Link
+            href="/ComingSoon"
+            className={`py-2 ${isActive("/Community")
+              ? "text-[#B30738] border-b-2 border-[#B30738]"
+              : "text-gray-700 hover:text-[#B30738]"
+              } transition`}
+          >
+            Community
+          </Link>
+
         </nav>
 
         <div className="hidden md:flex items-center space-x-2">
