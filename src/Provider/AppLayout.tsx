@@ -18,7 +18,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
       const token = localStorage.getItem("refreshToken");
 
       if (!token) {
-        setIsLoading(false);
+        setIsLoading(true);
         return;
       }
 
@@ -38,7 +38,7 @@ export default function AppLayout({ children }: { children: ReactNode }) {
         console.error("Refresh token error:", error);
         localStorage.removeItem("refreshToken");
       } finally {
-        setIsLoading(false);
+        setIsLoading(true);
       }
     };
 
