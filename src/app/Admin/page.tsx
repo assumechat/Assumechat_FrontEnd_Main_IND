@@ -58,7 +58,7 @@ export default function AdminDashboard() {
     };
 
     // Get admin key from environment variable (fallback to demo for Claude environment)
-    const envKey = process.env.NEXT_PUBLIC_ADMIN_KEY || "IITMADRAS";
+    const envKey = process.env.NEXT_PUBLIC_ADMIN_KEY;
     const apiUrl = process.env.NEXT_PUBLIC_BACKEND_URL || "https://api.example.com";
 
     const verifyAdminKey = (key: string) => {
