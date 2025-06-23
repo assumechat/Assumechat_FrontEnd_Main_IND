@@ -1,5 +1,6 @@
 "use client";
 import { useRef, useEffect, useState } from "react";
+import { toast } from "sonner";
 
 type SystemData = {
     status: string;
@@ -81,7 +82,7 @@ export default function AdminDashboard() {
 
             // Try to fetch from real API first
             try {
-                const response = await fetch(`${apiUrl}/health`, {
+                const response = await fetch(`${apiUrl}health`, {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
@@ -99,32 +100,7 @@ export default function AdminDashboard() {
                 return;
             } catch (apiError) {
                 console.warn('API call failed, using mock data:', apiError);
-
-                // Fallback to mock data that matches your API response structure
-                const mockData: SystemData = {
-                    status: "healthy",
-                    users: {
-                        total: 9,
-                        active: 9,
-                        newToday: 0,
-                        premium: 0,
-                        earlyAccess: 8
-                    },
-                    feedback: {
-                        total: 11,
-                        burstMode: 8
-                    },
-                    performance: {
-                        responseTime: "92.17ms",
-                        uptime: "99.98%",
-                        lastIncident: "None"
-                    },
-                    lastUpdated: new Date().toLocaleTimeString()
-                };
-
-                // Simulate network delay
-                await new Promise(resolve => setTimeout(resolve, 500));
-                setSystemData(mockData);
+                toast.error("Error while getting admin data");
             }
         } catch (err) {
             console.error('Failed to fetch system data:', err);
