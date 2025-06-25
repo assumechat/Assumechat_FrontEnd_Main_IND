@@ -1,5 +1,5 @@
 // app/waiting-room/layout.tsx
-import Sidebar from "@/components/Sidebar";
+import Sidebar from "@/components/Sidebar/Sidebar";
 
 export default function WaitingRoomLayout({
   children,
