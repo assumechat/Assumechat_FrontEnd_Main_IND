@@ -58,15 +58,12 @@ export function FooterSection() {
               conversations, and change your perspective — one chat at a time.
             </p>
             <div className="flex space-x-4 mt-4 text-[#B30738]">
-              <div className="border border-gray-400 rounded-lg p-3">
+              <a href="https://x.com/bizzz_social" target="_blank" className="border border-gray-400 rounded-lg p-3">
                 <BsTwitterX className="w-4 h-4" />
-              </div>
-              <div className="border border-gray-400 rounded-lg p-3">
+              </a>
+              <a href="https://www.instagram.com/bizz.social/" target="_blank" className="border border-gray-400 rounded-lg p-3">
                 <Instagram className="w-4 h-4" />
-              </div>
-              <div className="border border-gray-400 rounded-lg p-3">
-                <Facebook className="w-4 h-4" />
-              </div>
+              </a>
             </div>
           </div>
 
