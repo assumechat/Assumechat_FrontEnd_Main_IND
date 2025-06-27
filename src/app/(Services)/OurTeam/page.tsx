@@ -3,28 +3,16 @@ import Image from 'next/image';
 
 const teamMembers = [
     {
-        name: 'Aarav Mehta',
-        role: 'Founder & CEO',
-        image: 'https://source.unsplash.com/featured/?man,ceo',
-        bio: 'Visionary leader driving product innovation and team growth.'
+        name: 'Yash Rajan Shukla',
+        role: 'CEO, Newral & BizzSocial | IITM (2nd year)',
+        image: 'https://res.cloudinary.com/djwzwq4cu/image/upload/v1751035173/Screenshot_2025-06-27_at_20-07-54_Instagram_yemsw4.png',
+        bio: 'Founder and visionary leader at Newral and BizzSocial, IITM in 2nd year.'
     },
     {
-        name: 'Priya Sharma',
-        role: 'Head of Design',
-        image: 'https://source.unsplash.com/featured/?woman,designer',
-        bio: 'Designs intuitive interfaces and delightful experiences.'
-    },
-    {
-        name: 'Karan Patel',
-        role: 'Lead Engineer',
-        image: 'https://source.unsplash.com/featured/?man,developer',
-        bio: 'Architects scalable systems and writes clean, efficient code.'
-    },
-    {
-        name: 'Neha Verma',
-        role: 'Marketing Manager',
-        image: 'https://source.unsplash.com/featured/?woman,marketer',
-        bio: 'Crafts compelling brand stories and builds user community.'
+        name: 'Bhanu Pratap Singh',
+        role: 'Tech Lead, Newral | Founding Team, BizzSocial',
+        image: 'https://res.cloudinary.com/djwzwq4cu/image/upload/v1751035226/Photoroom-20250104_220607_gfbjgw.png',
+        bio: 'Tech lead at Newral and a founding team member of BizzSocial.'
     },
 ];
 
@@ -61,7 +49,7 @@ export default function TeamPage() {
                 <p className="text-gray-600 mb-12">The people behind the vision, design, and execution of BizzSocial.</p>
             </div>
 
-            <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+            <div className="relative z-10 max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-2 gap-8">
                 {teamMembers.map(member => (
                     <div
                         key={member.name}
