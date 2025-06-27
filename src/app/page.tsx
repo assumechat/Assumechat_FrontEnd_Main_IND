@@ -11,9 +11,11 @@ import FnQsection from '@/components/Home/FnQs';
 import Universities from '@/components/Home/Universities';
 import MadeInIndiaPage from '@/components/Home/MADEInIndia';
 import ClaimEarlyAccessPage from '@/components/EarlyAccess';
+import Header from '@/components/Header/HeaderEarly';
 export default function LandingPage() {
   return (
     <>
+      <Header />
       <ClaimEarlyAccessPage />
     </>
   );
